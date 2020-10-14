@@ -1,0 +1,25 @@
+{
+  "name": "gamers_alike",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrandonWalker88/gamers_alike.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrandonWalker88/gamers_alike/issues"
+  },
+  "homepage": "https://github.com/BrandonWalker88/gamers_alike#readme",
+  "dependencies": {
+    "bulma": "^0.9.1",
+    "bulma-start": "0.0.4",
+    "foundation-sites": "^6.6.3"
+  }
+}

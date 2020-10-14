@@ -1,0 +1,13 @@
+.column {
+
+}
+
+.columns {
+    background: rgb(224, 131, 44);
+    border: 10px solid rgb(3, 108, 194);
+}
+
+.row {
+    background: purple;
+    border: 10px solid rgb(14, 141, 78);
+}
