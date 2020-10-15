@@ -1,13 +1,27 @@
-.column {
-
-}
-
 .columns {
-    background: rgb(224, 131, 44);
-    border: 10px solid rgb(3, 108, 194);
+    border: 10px;
 }
 
 .row {
-    background: purple;
-    border: 10px solid rgb(14, 141, 78);
+    border: 10px;
+}
+/* 4a4a7b - purple */
+/* 49f308 */
+.gamers-headline {
+    font-size: 50px;
+}
+.emoji {
+    font-size: 40px;
+    padding: 5px;
+}
+
+.input{
+    max-width: 100%;
+    width: 100%;
+}
+
+#controller-icon {
+    height: 50px;
+    width: 50px;
+
 }

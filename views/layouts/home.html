@@ -6,19 +6,143 @@
         <title>Hello Bulma!</title>
         <link rel="stylesheet" href="../../public/css/foundation.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+        
       </head>
       <body>
+        <section class="section">
+          <div class="container">
+            <div class="columns">
+              <div class="column is-3" id="user-icon-img">
+                <i class="fa fa-user" id="user-icon"></i>
+              </div>
+              <div class="column is-6">
+                <div class="columns">
+                  <div class="column">
+                    <h1 class="gamers-headline">Gamers aLike</h1>
+                  </div>
+                  <div class="column">
+                    <img src="" class="ml-6 mt-3" id="controller-icon">
+                  </div>
+                </div>
+                <nav class="navbar mb-3" role="navigation" aria-label="main navigation">
+                  <div id="navbarBasicExample" class="navbar-menu">
+                        <input class="input is-warning" type="text" placeholder="What games are you looking for?">
+                  </div>
+                </nav>
+              </div>
+              <div class="column is-3">
+                <div class="card has-text-centered" id="user-card">
+                  <div class="user-rep">
+                    <i class="fas fa-smile emoji" id="smile-icon"></i>
+                    <span><strong>User Rep Score</strong></span>
+                  </div>
+                  <img
+                    src="../../public/images/rating1.png"
+                    alt="rating"
+                    id="user-rating"
+                  /><br />
+                  <i class="fas fa-skull emoji"></i>
+                  <i class="fas fa-thumbs-up emoji"></i>
+                  <i class="fas fa-smile-beam emoji"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       <section class="section">
         <div class="container">
-          <h1 class="title">
-            Hello World
-          </h1>
-
-
+          
             <div class="columns is-mobile">
               <div class="column">
-                <p class="bd-notification is-danger">Friend List</p>
+                <p class="bd-notification is-danger">
+                  <article class="panel is-warning">
+                    <p class="panel-heading">
+                      Friends
+                    </p>
+                    <div class="panel-block">
+                      <p class="control has-icons-left">
+                        <input class="input is-warning" type="text" placeholder="Search">
+                        <span class="icon is-left">
+                          <i class="fas fa-search" aria-hidden="true"></i>
+                        </span>
+                      </p>
+                    </div>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                      <a class="navbar-link">
+                        Tommy864
+                      </a>
+              
+                      <div class="navbar-dropdown">
+                        <a class="navbar-item">
+                          Invite
+                        </a>
+                        <a class="navbar-item">
+                          Rate
+                        </a>
+                        <a class="navbar-item">
+                          Games
+                        </a>
+                        <hr class="navbar-divider">
+                      </div>
+                    </div>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                      <a class="navbar-link">
+                        Bob_Johnson82
+                      </a>
+              
+                      <div class="navbar-dropdown">
+                        <a class="navbar-item">
+                          Invite
+                        </a>
+                        <a class="navbar-item">
+                          Rate
+                        </a>
+                        <a class="navbar-item">
+                          Games
+                        </a>
+                        <hr class="navbar-divider">
+                      </div>
+                    </div>
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                      <a class="navbar-link">
+                        BIGGGUNZZZ
+                      </a>
+              
+                      <div class="navbar-dropdown">
+                        <a class="navbar-item">
+                          Invite
+                        </a>
+                        <a class="navbar-item">
+                          Rate
+                        </a>
+                        <a class="navbar-item">
+                          Games
+                        </a>
+                        <hr class="navbar-divider">
+                      </div>
+                    </div>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                      <a class="navbar-link">
+                        Slayerrr
+                      </a>
+              
+                      <div class="navbar-dropdown">
+                        <a class="navbar-item">
+                          Invite
+                        </a>
+                        <a class="navbar-item">
+                          Rate
+                        </a>
+                        <a class="navbar-item">
+                          Games
+                        </a>
+                        <hr class="navbar-divider">
+                      </div>
+                    </div>
+                  </article></p>
               </div>
+
               <div class="column is-half">
                 <div class="columns is-mobile">
                   <div class="column is-one-third"> <div class="card">
@@ -28,23 +152,17 @@
                       </p>
                       <a href="#" class="card-header-icon" aria-label="more options">
                         <span class="icon">
-                          <i class="fas fa-angle-down" aria-hidden="true"></i>
+                          
                         </span>
                       </a>
                     </header>
                     <div class="card-content">
                       <div class="content">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                        <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                        <br>
-                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+
                       </div>
                     </div>
-                    <footer class="card-footer">
-                      <a href="#" class="card-footer-item">Save</a>
-                      <a href="#" class="card-footer-item">Edit</a>
-                      <a href="#" class="card-footer-item">Delete</a>
-                    </footer>
+
                   </div> </div>
                   <div class="column is-one-third"> <div class="card">
                     <header class="card-header">
@@ -53,23 +171,17 @@
                       </p>
                       <a href="#" class="card-header-icon" aria-label="more options">
                         <span class="icon">
-                          <i class="fas fa-angle-down" aria-hidden="true"></i>
+                          
                         </span>
                       </a>
                     </header>
                     <div class="card-content">
                       <div class="content">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                        <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                        <br>
-                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+
                       </div>
                     </div>
-                    <footer class="card-footer">
-                      <a href="#" class="card-footer-item">Save</a>
-                      <a href="#" class="card-footer-item">Edit</a>
-                      <a href="#" class="card-footer-item">Delete</a>
-                    </footer>
+
                   </div> </div>
                   <div class="column is-one-third"> <div class="card">
                     <header class="card-header">
@@ -78,23 +190,17 @@
                       </p>
                       <a href="#" class="card-header-icon" aria-label="more options">
                         <span class="icon">
-                          <i class="fas fa-angle-down" aria-hidden="true"></i>
+                          
                         </span>
                       </a>
                     </header>
                     <div class="card-content">
                       <div class="content">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                        <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                        <br>
-                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+
                       </div>
                     </div>
-                    <footer class="card-footer">
-                      <a href="#" class="card-footer-item">Save</a>
-                      <a href="#" class="card-footer-item">Edit</a>
-                      <a href="#" class="card-footer-item">Delete</a>
-                    </footer>
+
                   </div> </div>
                 </div>
                 <div class="columns is-mobile">
@@ -105,23 +211,17 @@
                       </p>
                       <a href="#" class="card-header-icon" aria-label="more options">
                         <span class="icon">
-                          <i class="fas fa-angle-down" aria-hidden="true"></i>
+                          
                         </span>
                       </a>
                     </header>
                     <div class="card-content">
                       <div class="content">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                        <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                        <br>
-                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+
                       </div>
                     </div>
-                    <footer class="card-footer">
-                      <a href="#" class="card-footer-item">Save</a>
-                      <a href="#" class="card-footer-item">Edit</a>
-                      <a href="#" class="card-footer-item">Delete</a>
-                    </footer>
+
                   </div> </div>
                   <div class="column is-one-third"> <div class="card">
                     <header class="card-header">
@@ -130,23 +230,17 @@
                       </p>
                       <a href="#" class="card-header-icon" aria-label="more options">
                         <span class="icon">
-                          <i class="fas fa-angle-down" aria-hidden="true"></i>
+                          
                         </span>
                       </a>
                     </header>
                     <div class="card-content">
                       <div class="content">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                        <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                        <br>
-                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+
                       </div>
                     </div>
-                    <footer class="card-footer">
-                      <a href="#" class="card-footer-item">Save</a>
-                      <a href="#" class="card-footer-item">Edit</a>
-                      <a href="#" class="card-footer-item">Delete</a>
-                    </footer>
+
                   </div> </div>
                   <div class="column is-one-third"> <div class="card">
                     <header class="card-header">
@@ -155,33 +249,49 @@
                       </p>
                       <a href="#" class="card-header-icon" aria-label="more options">
                         <span class="icon">
-                          <i class="fas fa-angle-down" aria-hidden="true"></i>
+                          
                         </span>
                       </a>
                     </header>
                     <div class="card-content">
                       <div class="content">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                        <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                        <br>
-                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+
                       </div>
                     </div>
-                    <footer class="card-footer">
-                      <a href="#" class="card-footer-item">Save</a>
-                      <a href="#" class="card-footer-item">Edit</a>
-                      <a href="#" class="card-footer-item">Delete</a>
-                    </footer>
+
                   </div> </div>
                 </div>
               </div>
-              <div class="column">
-                <p class="bd-notification is-danger">Auto</p>
-              </div>
+              <div class="column is-3">
+                <div class="card">
+                    <header class="card-header">
+                      <p class="card-header-title">
+                        My Current Game
+                      </p>
+                      </header>
+                    <div class="card-content">
+                      <div class="content">
+                          <strong>Counter Strike: GO</strong><br><br>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                        </div>
+                    </div><hr>
+                            <div class="card-content">
+                            <div class="content">
+                                <strong>Invites Sent</strong><br><br>
+                                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                            </div>
+                        </div> 
+                  </div>
+                 </div>
             </div>
 
 
         </div>
       </section>
       </body>
+      <script
+      src="https://kit.fontawesome.com/2e7a6cc9a2.js"
+      crossorigin="anonymous"
+    ></script>
     </html>
