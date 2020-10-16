@@ -1,0 +1,14 @@
+.center-text {
+    text-align: center;
+    margin: 80px;
+    font-size: 60px;
+}
+.bg-img { 
+    background-image: url(/public/images/background.png);
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+    background-color: #999;
+
+}
