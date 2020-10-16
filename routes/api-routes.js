@@ -80,9 +80,11 @@ module.exports = function (app) {
     }
   });
 
-//   app.get("/api/sendGameInvite", function (req,res) {
-//       if (req.body.requesteeId != req.user.id)
-//   })
+  app.post("/api/sendGameInvite", function (req,res) {
+      if (req.body.requesteeId != req.user.id) {
+          req.user.addBeingInvited(req.body.requesteeId)
+      }
+  })
 
 
 
