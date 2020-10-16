@@ -89,6 +89,8 @@ body, html {
   color: white;
 }
 
-.bgimg {
-  background-image: url("https://miro.medium.com/max/4192/1*yj9_ugyJn6XQ5Da9IqCXyg.jpeg");
-}
+/* .bgimg {
+  background: url("https://miro.medium.com/max/4192/1*yj9_ugyJn6XQ5Da9IqCXyg.jpeg");
+  background-repeat: no-repeat;
+  background-size: 1270px 800px;
+} */
