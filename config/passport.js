@@ -4,37 +4,35 @@ var LocalStrategy = require("passport-local").Strategy;
 
 var db = require("../models");
 
-if (
-    // user selects steam login/
-)
+// if (steam)
 
-{
-    passport.use(new SteamStrategy({
-        returnURL: 'http://localhost:3000/auth/steam/return',
-        realm: 'http://localhost:3000/',
-        apiKey: 'Your API key here'
-      },
-      function(identifier, profile, done) {
-        // asynchronous verification, for effect...
-        process.nextTick(function () {
+// {
+//     passport.use(new SteamStrategy({
+//         returnURL: 'http://localhost:3000/auth/steam/return',
+//         realm: 'http://localhost:3000/',
+//         apiKey: 'Your API key here'
+//       },
+//       function(identifier, profile, done) {
+//         // asynchronous verification, for effect...
+//         process.nextTick(function () {
     
-          // To keep the example simple, the user's Steam profile is returned to
-          // represent the logged-in user.  In a typical application, you would want
-          // to associate the Steam account with a user record in your database,
-          // and return that user instead.
-          db.User.findOne({
-            where: {
-              username: identifier,
+//           // To keep the example simple, the user's Steam profile is returned to
+//           // represent the logged-in user.  In a typical application, you would want
+//           // to associate the Steam account with a user record in your database,
+//           // and return that user instead.
+//           db.User.findOne({
+//             where: {
+//               username: identifier,
               
-            }
-          })
+//             }
+//           })
 
-          profile.identifier = identifier;
-          return done(null, profile);
-        });
-      }
-    )); 
-} else {
+//           profile.identifier = identifier;
+//           return done(null, profile);
+//         });
+//       }
+//     )); 
+// } else {
   passport.use(new LocalStrategy(
     // Our user will sign in using a username
     {
@@ -64,7 +62,7 @@ if (
       });
     }
   ));
-}
+// }
 
 // In order to help keep authentication state across HTTP requests,
 // Sequelize needs to serialize and deserialize the user
