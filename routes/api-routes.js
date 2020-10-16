@@ -62,25 +62,28 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/user/:id", function (req, res) {
-    if (!req.user) {
-      res.redirect(401, "/");
+//   app.get("/api/user/:id", function (req, res) {
+//     if (!req.user) {
+//       res.redirect(401, "/");
+//     } else {
+//     }
+//   });
+
+  app.post("/api/sendFriendInvite", function (req, res) {
+    if (req.body.requesteeId != req.user.id) {
+      console.log("Send friend request");
+      req.user
+        .addRequestees(req.body.requesteeId)
+        .then((result) => res.status(201).send(result));
     } else {
-        
+      res.status(400).send("Cannot friend yourself");
     }
   });
 
-  app.post("api/send_invite", function (req,res) {
-    if (!req.user) {
-        res.redirect(401, "/");
-    } else {
-        db.userInvites.create({
-            receive_id: req.params.id,
-            accepted: false,
-            voice_chat: false
-        }).then(function(){
-            res.body.message = `${req.params.username} has been sent the invite`
-        })
-    }
-  })
+//   app.get("/api/sendGameInvite", function (req,res) {
+//       if (req.body.requesteeId != req.user.id)
+//   })
+
+
+
 };

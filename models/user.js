@@ -103,13 +103,13 @@ module.exports = function (sequelize, DataTypes) {
 
   User.belongsToMany(User, { as: "Group", through: "gameSessions" });
   User.belongsToMany(User, {
-    as: "Requestees",
+    as: "BeingInvited",
     through: "gameRequests",
     foreignKey: "requesterId",
     onDelete: "CASCADE",
   });
   User.belongsToMany(User, {
-    as: "Requesters",
+    as: "Inviter",
     through: "gameRequests",
     foreignKey: "requesteeId",
     onDelete: "CASCADE",
