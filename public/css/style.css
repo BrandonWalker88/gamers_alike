@@ -1,3 +1,5 @@
+/* 4a4a7b - purple */
+/* 49f308 */
 #user-icon {
   font-size: 100px;
 
@@ -7,15 +9,12 @@
   width: 45%;
   padding-top: 10px;
   padding-bottom: 10px;
-  /* text-align: center; */
   margin-left: 120px;
 }
 
 #user-card {
-  /* width: 45%; */
   padding-top: 10px;
   padding-bottom: 10px;
-  /* text-align: center; */
 }
 
 #smile-icon {
@@ -23,7 +22,6 @@
 }
 
 span {
-  /* padding-left: 10px; */
   margin-right: 50px;
 }
 
@@ -31,12 +29,13 @@ span {
     max-width: 90px;
 }
 
+
 #user-rating {
     max-width: 110px;
-    /* margin-left: 50px; */
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
 .fas{
     padding-left: 20px;
     padding-right: 20px;
@@ -53,6 +52,7 @@ span {
 .button {
   margin-bottom: 20px;
 }
+
 #friend-card {
   text-align: center;
 }
@@ -88,8 +88,48 @@ body, html {
   color: white;
 }
 
-/* .bgimg {
-  background: url("https://miro.medium.com/max/4192/1*yj9_ugyJn6XQ5Da9IqCXyg.jpeg");
+.columns {
+  border: 10px;
+}
+.row {
+  border: 10px;
+}
+.gamers-headline {
+  font-size: 50px;
+}
+.emoji {
+  font-size: 40px;
+  padding: 5px;
+}
+
+.input{
+  max-width: 100%;
+  width: 100%;
+}
+
+#controller-icon {
+  height: 50px;
+  width: 50px;
+}
+
+.center-text {
+  text-align: center;
+  margin: 80px;
+  font-size: 60px;
+  font-family: 'Audiowide', cursive;
+  color: #49f308;
+}
+.bg-img { 
+  background-image: url("../images/background.png");
+  background-repeat:  no-repeat;
+  background-attachment: fixed;
+  background-size:  cover;
+  background-color: #999;
+}
+
+.section {
+  background-image: url("../images/logo.png");
+  opacity: 0.5;
   background-repeat: no-repeat;
-  background-size: 1270px 800px;
-} */
+  background-position: center center;
+}
