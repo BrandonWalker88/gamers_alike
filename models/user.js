@@ -13,7 +13,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     password: {
       type: DataTypes.STRING(64),
-      allowNull: false,
+      allowNull: true,
       validate: {
         is: /^[0-9a-f]{64}$/i,
       },
@@ -86,6 +86,35 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
     },
   });
+
+  User.belongsToMany(User, { as: "Friends", through: "friends" });
+  User.belongsToMany(User, {
+    as: "Requestees",
+    through: "friendRequests",
+    foreignKey: "requesterId",
+    onDelete: "CASCADE",
+  });
+  User.belongsToMany(User, {
+    as: "Requesters",
+    through: "friendRequests",
+    foreignKey: "requesteeId",
+    onDelete: "CASCADE",
+  });
+
+  User.belongsToMany(User, { as: "Group", through: "gameSessions" });
+  User.belongsToMany(User, {
+    as: "Requestees",
+    through: "gameRequests",
+    foreignKey: "requesterId",
+    onDelete: "CASCADE",
+  });
+  User.belongsToMany(User, {
+    as: "Requesters",
+    through: "gameRequests",
+    foreignKey: "requesteeId",
+    onDelete: "CASCADE",
+  });
+
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
