@@ -4,15 +4,15 @@ const { Op } = require("sequelize");
 
 module.exports = function (app) {
   app.get(
-    "/auth/steam",
+    "/signin/auth/steam",
     passport.authenticate("steam", { failureRedirect: "/signin" }),
     function (req, res) {
-      res.redirect("/");
+      res.redirect("/signin");
     }
   );
 
   app.get(
-    "/auth/steam/return",
+    "/signin/auth/steam/return",
     passport.authenticate("steam", { failureRedirect: "/signin" }),
     function (req, res) {
       // We have to get data from Steam API and use it to make a user model

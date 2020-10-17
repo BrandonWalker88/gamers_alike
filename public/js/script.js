@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $("#steamBtn").on("click", function (event) {
-    $.get("/auth/steam", function (data) {
+    $.get("/signin/auth/steam", function (data) {
       console.log(data);
     });
   });
