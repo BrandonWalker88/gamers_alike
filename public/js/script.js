@@ -1,5 +1,7 @@
 $(document).ready(function () {
-  $("#steamBtn").on("click", function(event) {
-    console.log("click");
-  })
+  $("#steamBtn").on("click", function (data) {
+    $.get("/auth/steam", function (data) {
+      console.log(data);
+    });
+  });
 });

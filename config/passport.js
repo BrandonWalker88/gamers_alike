@@ -7,9 +7,9 @@ var db = require("../models");
 passport.use(
   new SteamStrategy(
     {
-      returnURL: "http://localhost:3000/auth/steam/return",
-      realm: "http://localhost:3000/",
-      apiKey: "4780570471278B23219D8CB5CFD1FA5C", //Jason's Dev API Key
+      returnURL: "http://localhost:8080/auth/steam/return",
+      realm: "https://gamers-alike.herokuapp.com/",
+      apiKey: "D94580D5312585B718FA616F6F1CB4F0", //Jason's Dev API Key
     },
     function (identifier, profile, done) {
       // asynchronous verification, for effect...

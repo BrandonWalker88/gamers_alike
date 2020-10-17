@@ -4,7 +4,7 @@ const { Op } = require("sequelize");
 
 module.exports = function (app) {
   app.get(
-    "/api/auth/steam",
+    "/auth/steam",
     passport.authenticate("steam", { failureRedirect: "/signin" }),
     function (req, res) {
       res.redirect("/");
@@ -12,7 +12,7 @@ module.exports = function (app) {
   );
 
   app.get(
-    "/api/auth/steam/return",
+    "/auth/steam/return",
     passport.authenticate("steam", { failureRedirect: "/signin" }),
     function (req, res) {
       // We have to get data from Steam API and use it to make a user model
@@ -62,12 +62,12 @@ module.exports = function (app) {
     });
   });
 
-//   app.get("/api/user/:id", function (req, res) {
-//     if (!req.user) {
-//       res.redirect(401, "/");
-//     } else {
-//     }
-//   });
+  //   app.get("/api/user/:id", function (req, res) {
+  //     if (!req.user) {
+  //       res.redirect(401, "/");
+  //     } else {
+  //     }
+  //   });
 
   app.post("/api/sendFriendInvite/", function (req, res) {
       console.log(req.body.requesteeId);
@@ -110,11 +110,12 @@ module.exports = function (app) {
       
   })
 
+  app.get("/api/IncomingFriends", function (req, res) {});
 
-  app.get("/allUsers", function (req,res) {
-      console.log("hello");
-      db.User.findAll({}).then(user => {
-          res.render("test", {user: user});
-      })
-  })
+  app.get("/allUsers", function (req, res) {
+    console.log("hello");
+    db.User.findAll({}).then((user) => {
+      res.render("test", { user: user });
+    });
+  });
 };
