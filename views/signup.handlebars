@@ -46,6 +46,8 @@
             .then(function (data) {
                 window.location.replace("/home");
             })
-            .catch(err)
+            .catch(function(err) {
+                console.log(err);
+            })
     }
 </script>

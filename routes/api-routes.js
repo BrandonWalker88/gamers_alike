@@ -28,11 +28,9 @@ module.exports = function (app) {
     db.User.create({
       user_name: req.body.username,
       password: req.body.password,
-      current_status: "true",
-      ratings: "4.0",
     })
       .then(function () {
-        res.redirect(307, "/login");
+        res.redirect(307, "/api/login");
       })
       .catch(function (err) {
         res.status(401).json(err);
