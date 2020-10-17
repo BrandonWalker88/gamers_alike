@@ -28,23 +28,14 @@ module.exports = function (app) {
     db.User.create({
       user_name: req.body.username,
       password: req.body.password,
-      user_icon: req.array.images,
       current_status: "true",
       ratings: "4.0",
-      user_attr1: req.body.attr1,
-      user_attr2: req.body.attr2,
-      user_attr3: req.body.attr3,
-      user_attr4: req.body.attr4,
-      user_attr5: req.body.attr5,
-      user_attr6: req.body.attr6,
-      discord_account_linked: req.body.check,
-      discord_user: req.body.discordId,
     })
       .then(function () {
         res.redirect(307, "/login");
       })
       .catch(function (err) {
-        res.redirect(401, "/signup");
+        res.status(401).json(err);
       });
   });
 
@@ -71,19 +62,17 @@ module.exports = function (app) {
 
   app.post("/api/sendFriendInvite/", function (req, res) {
       console.log(req.body.requesteeId);
-      let testUser = "Dummy Test data"
       
       db.User.findOne({
           where: {
               id: 1
           }
       }).then(user => {
-          console.log(user.dataValues);
-          // res.json(user);
-          return testUser = user.dataValues;
+          return user.addRequestees(req.body.requesteeId)
+      }).then(result => {
+        console.log(result);
       })
       
-      console.log(testUser);
       
     // if (req.body.requesteeId != testUser.id) {
     //   console.log("Send friend request");
@@ -96,14 +85,17 @@ module.exports = function (app) {
   });
 
   app.put("/api/sendGameInvite/", function (req,res) {
-      req.user.id = 1;
-      if (req.body.requesteeId != req.user.id) {
-          req.user.addBeingInvited(req.body.requesteeId)
-          .then(result => {
-              console.log(result);
-              res.status(201).send(result);
-          })
-      }
+    console.log(req.body.requesteeId);
+      
+    db.User.findOne({
+        where: {
+            id: 1
+        }
+    }).then(user => {
+        return user.addRequestees(req.body.requesteeId)
+    }).then(result => {
+      console.log(result);
+    })
   })
 
   app.get("/api/IncomingFriends", function (req,res) {

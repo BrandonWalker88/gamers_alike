@@ -1,7 +1,7 @@
 <div>
     <section>
-        <h2>Login Form</h2>
-        <form class="login">
+        <h2>Sign Up Form</h2>
+        <form class="signup" action="">
             <div>
                 <label for="testUsername">Username</label>
                 <input type="username" name="username" placeholder="Username" id="username-input">
@@ -10,14 +10,15 @@
                 <label for="testUserPassword">Password</label>
                 <input type="password" name="password" placeholder="Password" id="password-input">
             </div>
-            <button type="submit">Login</button>
+            <button type="submit">Sign Up</button>
         </form>
-        <p>Or sign up <a href="/">here</a></p>
+        <br>
+        <p>Or Log in <a href="/login">here</a></p>
     </section>
 </div>
 
 <script>
-    const signUpForm = $("form.login");
+    const signUpForm = $("form.signup");
     const usernameInput = $("input#username-input");
     const passwordInput = $("input#password-input");
 
@@ -32,21 +33,19 @@
             return;
         }
 
-        loginUser(userData.username, userData.password);
+        signUpUser(userData.username, userData.password);
         usernameInput.val("");
         passwordInput.val("");
     });
 
-    function loginUser(username, password) {
-        $.post("/api/login", {
+    function signUpUser(username, password) {
+        $.post("/api/signup", {
             username: username,
             password: password
         })
-            .then(function () {
+            .then(function (data) {
                 window.location.replace("/home");
             })
-            .catch(function(err) {
-                console.log(err);
-            })
+            .catch(err)
     }
 </script>
