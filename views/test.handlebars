@@ -23,7 +23,6 @@
         const potentialFriend = {
             requesteeId: $(this).data("friend"),
         };
-        console.log(potentialFriend);
 
         $.ajax("/api/sendFriendInvite/", {
             type: "POST",
