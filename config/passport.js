@@ -10,7 +10,7 @@ var db = require("../models");
 //       {
 //         returnURL: "http://localhost:3000/auth/steam/return",
 //         realm: "http://localhost:3000/",
-//         apiKey: "Your API key here",
+//         apiKey: "4780570471278B23219D8CB5CFD1FA5C", //Jason's Dev API Key
 //       },
 //       function (identifier, profile, done) {
 //         // asynchronous verification, for effect...
