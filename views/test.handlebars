@@ -5,11 +5,32 @@
             {{#dataValues}}
             <li>
                 {{{id}}}. {{{user_name}}}
-                <button class="friendMe" data-friend="{{{id}}}">Friend Me</button>
-                <button class="gameInvite" data-game="{{{id}}}">Game Invite</button>
+                <button class="friendMe" data-friend={{{id}}}>Friend Me</button>
+                <button class="gameInvite" data-game={{{id}}}>Game Invite</button>
             </li>
             {{/dataValues}}
             {{/each}}
         </ul>
     </section>
 </div>
+
+<script>
+    console.log("hello world");
+    $(".friendMe").on("click", function (event) {
+        event.preventDefault();
+        console.log("friend me clicked");
+        const id = $(this).data("friend");
+        const potentialFriend = {
+            requesteeId: $(this).data("friend"),
+        };
+        console.log(potentialFriend);
+
+        $.ajax("/api/sendFriendInvite/", {
+            type: "POST",
+            data: potentialFriend,
+        }).then(function() {
+            console.log("sent friend request");
+            {{!-- location.reload(); --}}
+        });
+    });
+</script>

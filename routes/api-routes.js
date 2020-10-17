@@ -69,15 +69,26 @@ module.exports = function (app) {
 //     }
 //   });
 
-  app.put("/api/sendFriendInvite", function (req, res) {
-    if (req.body.requesteeId != req.user.id) {
-      console.log("Send friend request");
-      req.user
-        .addRequestees(req.body.requesteeId)
-        .then((result) => res.status(201).send(result));
-    } else {
-      res.status(400).send("Cannot friend yourself");
-    }
+  app.post("/api/sendFriendInvite/", function (req, res) {
+      console.log(req.body);
+      res.json(req.body);
+    //   db.User.findOne({
+    //       where: {
+    //           id = 1
+    //       }
+    //   }).then(user => {
+    //       console.log(user);
+    //       res.json(user);
+    //       return req.user = user;
+    //   }) 
+    // if (req.body.requesteeId != req.user.id) {
+    //   console.log("Send friend request");
+    //   req.user
+    //     .addRequestees(req.body.requesteeId)
+    //     .then((result) => res.status(201).send(result));
+    // } else {
+    //   res.status(400).send("Cannot friend yourself");
+    // }
   });
 
   app.put("/api/sendGameInvite", function (req,res) {

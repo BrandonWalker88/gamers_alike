@@ -1,6 +1,6 @@
 <body>
   <div class="bg-img">
-    <section class="section">
+    <section class="section logo">
       <div class="container">
         <h1 class="center-text">Welcome, Gamer</h1>
         <h3 class="center-text">.</h3>
@@ -8,7 +8,7 @@
           <div class="column"></div>
           <div class="column"></div>
           <div class="column">
-            <input type="image" src="../public/images/sits_01.png" name="steam" class="steamBtn" id="steamBtn" />
+            <input type="image" src="../images/sits_01.png" name="steam" class="steamBtn ml-5" id="steamBtn" />
           </div>
           <div class="column"></div>
           <div class="column"></div>
@@ -17,3 +17,9 @@
     </section>
   </div>
 </body>
+<script>
+  document.getElementById("steamBtn").addEventListener("click", myFunction);
+  function myFunction() {
+    console.log("click!");
+  }
+</script>
