@@ -4,7 +4,7 @@ const { Op } = require("sequelize");
 
 module.exports = function (app) {
   app.get(
-    "api/auth/steam",
+    "/api/auth/steam",
     passport.authenticate("steam", { failureRedirect: "/signin" }),
     function (req, res) {
       res.redirect("/");
@@ -12,7 +12,7 @@ module.exports = function (app) {
   );
 
   app.get(
-    "api/auth/steam/return",
+    "/api/auth/steam/return",
     passport.authenticate("steam", { failureRedirect: "/signin" }),
     function (req, res) {
       // We have to get data from Steam API and use it to make a user model
@@ -71,27 +71,31 @@ module.exports = function (app) {
 
   app.post("/api/sendFriendInvite/", function (req, res) {
       console.log(req.body.requesteeId);
+      let testUser = "Dummy Test data"
       
       db.User.findOne({
           where: {
               id: 1
           }
       }).then(user => {
-          console.log(user);
+          console.log(user.dataValues);
           // res.json(user);
-          return req.user = user;
-      }) 
-    if (req.body.requesteeId != req.user.dataValues.id) {
-      console.log("Send friend request");
-      req.user
-        .addRequestees(req.body.requesteeId)
-        .then((result) => res.status(201).send(result));
-    } else {
-      res.status(400).send("Cannot friend yourself");
-    }
+          return testUser = user.dataValues;
+      })
+      
+      console.log(testUser);
+      
+    // if (req.body.requesteeId != testUser.id) {
+    //   console.log("Send friend request");
+    //   testUser
+    //     .addRequestees(req.body.requesteeId)
+    //     .then((result) => res.status(201).send(result));
+    // } else {
+    //   res.status(400).send("Cannot friend yourself");
+    // }
   });
 
-  app.put("/api/sendGameInvite", function (req,res) {
+  app.put("/api/sendGameInvite/", function (req,res) {
       req.user.id = 1;
       if (req.body.requesteeId != req.user.id) {
           req.user.addBeingInvited(req.body.requesteeId)

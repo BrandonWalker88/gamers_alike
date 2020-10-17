@@ -32,4 +32,21 @@
             {{!-- location.reload(); --}}
         });
     });
+
+    $(".gameInvite").on("click", function (event) {
+        event.preventDefault();
+        console.log("Game Invite clicked");
+        const id = $(this).data("game");
+        const gameInvite = {
+            requesteeId: $(this).data("friend"),
+        };
+
+        $.ajax("/api/sendGameInvite/", {
+            type: "POST",
+            data: gameInvite,
+        }).then(function() {
+            console.log("sent game invite");
+            {{!-- location.reload(); --}}
+        });
+    });
 </script>
