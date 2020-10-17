@@ -2,6 +2,7 @@
 /* 49f308 */
 #user-icon {
   font-size: 100px;
+  color: #49f308;
 }
 
 #friend-name {
@@ -77,6 +78,7 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  opacity: 0.65;
 }
 
 .hero-text {
@@ -136,7 +138,7 @@ html {
 }
 
 .opaque {
-  opacity: 0.5;
+  opacity: 0.65;
 }
 
 .pink {
@@ -236,3 +238,19 @@ html {
   font-size: 20px;
   margin-right: 10px;
 }
+
+#game-title {
+  border: 3px solid #49f308;
+  opacity: 0.65;
+}
+
+#invite {
+  border: 3px solid #49f308;
+  opacity: 0.65;
+}
+
+#onlinenow {
+  border: 3px solid #49f308;
+  opacity: 0.65;
+}
+
