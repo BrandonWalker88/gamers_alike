@@ -1,171 +1,268 @@
-  <body>
+<body>
     <section class="section">
-      <div class="container">
-        <div class="columns">
-          <div class="column is-1">
-            <i class="fa fa-user" id="user-icon"></i>
-          </div>
-          <div class="column is-2" style="float: left">
-            <p><strong>Phoenix22</strong></p>
-            <img
-              src="../../public/images/rating1.png"
-              alt="rating"
-              id="friend-rating"
-            />
-          </div>
-          <div class="column is-6">
-            <div class="card has-text-centered" id="friend-name">
-              <strong>Phoenix22's Top Games</strong>
+    <div class="container">
+      <div class="columns">
+        <div class="column is-3" id="user-icon-img">
+          <i class="fa fa-user" id="user-icon"></i>
+        </div>
+        <div class="column is-6">
+          <div class="columns">
+            <div class="column">
+
+            </div>
+            <div class="column">
+              <img src="../images/logo.png" class="opaque mt-3">
+            </div>
+            <div class="column">
             </div>
           </div>
-          <div class="column is-3">
-            <div class="card has-text-centered" id="user-card">
-              <div class="user-rep">
-                <i class="fas fa-smile" id="smile-icon"></i>
-                <span><strong>User Rep Score</strong></span>
-              </div>
-              <img
-                src="../../public/images/rating1.png"
-                alt="rating"
-                id="user-rating"
-              /><br />
-              <i class="fas fa-skull"></i>
-              <i class="fas fa-thumbs-up"></i>
-              <i class="fas fa-smile-beam"></i>
+          <div class="field">
+            <div class="control">
+
+          <div class="card has-text-centered" id="friend-name">
+            <strong>Phoenix22's Top Games</strong>
+          </div>
+
             </div>
+            </div>
+        </div>
+        <div class="column is-3">
+          <div class="card has-text-centered" id="user-card">
+            <div class="user-rep">
+              <i class="fas fa-smile emoji" id="smile-icon"></i>
+              <span><strong>User Rep Score</strong></span>
+            </div>
+            <img src="../images/rating1.png" alt="rating" id="user-rating" /><br />
+            <i class="fas fa-skull emoji"></i>
+            <i class="fas fa-thumbs-up emoji"></i>
+            <i class="fas fa-smile-beam emoji"></i>
           </div>
         </div>
       </div>
-    </section>
-    <section class="section">
-      <div class="container">
-        <div class="columns">
-          <div class="column is-2">
-            <i class="fa fa-grin-squint-tears is-clickable"></i
-            ><span><strong>Lol!</strong></span
-            ><br />
-            <i class="fa fa-bullseye is-clickable"></i><span><strong>Pro Gamer</strong></span
-            ><br />
-            <i class="fa fa-poop is-clickable"></i><span><strong>Cheater!</strong></span
-            ><br />
-            <i class="fa fa-wine-bottle is-clickable"></i><span><strong>G.U.I.</strong></span
-            ><br />
-            <i class="fa fa-moon is-clickable"></i><span><strong>Nightowl</strong></span
-            ><br />
-            <i class="fa fa-headphones is-clickable"></i><span><strong>Talker</strong></span
-            ><br />
-            <!-- <div class="buttons"> -->
-            <button class="button is-link">Invite to Play!</button><br />
-            <button class="button is-danger">Remove From List!</button>
-            <!-- </div> -->
+    </div>
+  </section>
+  {{!-- <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-3">
+          <i class="fa fa-user" id="user-icon"></i>
+        </div>
+        <div class="column is-6" style="float: left">
+          <p><strong>Phoenix22</strong></p>
+          <img src="../../public/images/rating1.png" alt="rating" id="friend-rating" />
+        </div>
+        <div class="column is-6 opaque">
+          <div class="card has-text-centered" id="friend-name">
+            <strong>Phoenix22's Top Games</strong>
           </div>
-          <div class="column is-7">
-            <div class="columns is-mobile">
-              <div class="column is-one-third">
-                <div class="card">
-                  <header class="card-header">
-                    <p class="card-header-title">Component</p>
-                  </header>
-                  <div class="card-content">
-                    <div class="content">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Phasellus nec iaculis mauris.
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="column is-one-third">
-                <div class="card">
-                  <header class="card-header">
-                    <p class="card-header-title">Component</p>
-                  </header>
-                  <div class="card-content">
-                    <div class="content">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Phasellus nec iaculis mauris.
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="column is-one-third">
-                <div class="card">
-                  <header class="card-header">
-                    <p class="card-header-title">Component</p>
-                  </header>
-                  <div class="card-content">
-                    <div class="content">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Phasellus nec iaculis mauris.
-                    </div>
+          <div class="columns">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <img src="../images/logo.png" class="opaque mt-3">
+                        <div class="column"></div>
+            <div class="column"></div>
+                        <div class="column"></div>
+            <div class="column"></div>
+          </div>
+        </div>
+        <div class="column is-3">
+          <div class="card has-text-centered" id="user-card">
+            <div class="user-rep">
+              <i class="fas fa-smile" id="smile-icon"></i>
+              <span><strong>User Rep Score</strong></span>
+            </div>
+            <img src="../../public/images/rating1.png" alt="rating" id="user-rating" /><br />
+            <i class="fas fa-skull"></i>
+            <i class="fas fa-thumbs-up"></i>
+            <i class="fas fa-smile-beam"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> --}}
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-2">
+          <i class="fa fa-grin-squint-tears is-clickable" id="smiley"></i><span><strong
+              id="emoji-font">Lol!</strong></span><br />
+          <i class="fa fa-bullseye is-clickable" id="bullseye"></i><span><strong id="emoji-font">Pro
+              Gamer</strong></span><br />
+          <i class="fa fa-poop is-clickable" id="poop"></i><span><strong id="emoji-font">Cheater!</strong></span><br />
+          <i class="fa fa-wine-bottle is-clickable" id="bottle"></i><span><strong
+              id="emoji-font">G.U.I.</strong></span><br />
+          <i class="fa fa-moon is-clickable" id="moon"></i><span><strong id="emoji-font">Nightowl</strong></span><br />
+          <i class="fa fa-headphones is-clickable" id="headphone"></i><span><strong
+              id="emoji-font">Talker</strong></span><br />
+          <!-- <div class="buttons"> -->
+          <button class="button is-link" id="invitebutton"><strong>Invite to Play!</strong></button><br />
+          <button class="button is-danger" id="removebutton"><strong>Remove From List!</strong></button>
+          <!-- </div> -->
+        </div>
+        <div class="column is-7 opaque">
+          <div class="columns is-mobile">
+            <div class="column is-one-third">
+              <div class="card">
+                <header class="card-header">
+                  <p class="card-header-title">Component</p>
+                </header>
+                <div class="card-content">
+                  <div class="content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Phasellus nec iaculis mauris.
                   </div>
                 </div>
               </div>
             </div>
-            <div class="columns is-mobile">
-              <div class="column is-one-third">
-                <div class="card">
-                  <header class="card-header">
-                    <p class="card-header-title">Component</p>
-                  </header>
-                  <div class="card-content">
-                    <div class="content">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Phasellus nec iaculis mauris.
-                    </div>
+            <div class="column is-one-third">
+              <div class="card">
+                <header class="card-header">
+                  <p class="card-header-title">Component</p>
+                </header>
+                <div class="card-content">
+                  <div class="content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Phasellus nec iaculis mauris.
                   </div>
                 </div>
               </div>
-              <div class="column is-one-third">
-                <div class="card">
-                  <header class="card-header">
-                    <p class="card-header-title">Component</p>
-                  </header>
-                  <div class="card-content">
-                    <div class="content">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Phasellus nec iaculis mauris.
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="column is-one-third">
-                <div class="card">
-                  <header class="card-header">
-                    <p class="card-header-title">Component</p>
-                  </header>
-                  <div class="card-content">
-                    <div class="content">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Phasellus nec iaculis mauris.
-                    </div>
+            </div>
+            <div class="column is-one-third">
+              <div class="card">
+                <header class="card-header">
+                  <p class="card-header-title">Component</p>
+                </header>
+                <div class="card-content">
+                  <div class="content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Phasellus nec iaculis mauris.
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="column is-3">
-            <div class="card">
-              <header class="card-header">
-                <p class="card-header-title">My Current Game</p>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                  <strong>Counter Strike: GO</strong><br /><br />
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus nec iaculis mauris.
+          <div class="columns is-mobile">
+            <div class="column is-one-third">
+              <div class="card">
+                <header class="card-header">
+                  <p class="card-header-title">Component</p>
+                </header>
+                <div class="card-content">
+                  <div class="content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Phasellus nec iaculis mauris.
+                  </div>
                 </div>
               </div>
-              <hr />
-              <div class="card-content">
-                <div class="content">
-                  <strong>Invites Sent</strong><br /><br />
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus nec iaculis mauris.
+            </div>
+            <div class="column is-one-third">
+              <div class="card">
+                <header class="card-header">
+                  <p class="card-header-title">Component</p>
+                </header>
+                <div class="card-content">
+                  <div class="content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Phasellus nec iaculis mauris.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column is-one-third">
+              <div class="card">
+                <header class="card-header">
+                  <p class="card-header-title">Component</p>
+                </header>
+                <div class="card-content">
+                  <div class="content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Phasellus nec iaculis mauris.
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="column is-3 solid">
+          <article class="panel is-danger">
+            <p class="panel-heading">
+              Current Game
+            </p>
+            <h2 class="has-text-white">Invites Accepted</h2>
+            <div class="panel-block">
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="panel-block has-text-danger">
+                <span class="panel-icon">
+                  <i class="fas" aria-hidden="true"></i>
+                </span>
+                <strong>Tommy864</strong>
+              </a>
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  Rate
+                </a>
+                <a class="navbar-item">
+                  Games
+                </a>
+                <hr class="navbar-divider">
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="panel-block has-text-danger">
+                <span class="panel-icon">
+                  <i class="fas" aria-hidden="true"></i>
+                </span>
+                <strong>BIGGGUNZZZ</strong>
+              </a>
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  Rate
+                </a>
+                <a class="navbar-item">
+                  Games
+                </a>
+                <hr class="navbar-divider">
+              </div>
+            </div>
+            <h2 class="has-text-white">Invites Accepted</h2>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="panel-block has-text-danger">
+                <span class="panel-icon">
+                  <i class="fas" aria-hidden="true"></i>
+                </span>
+                <strong>Slayerrr</strong>
+              </a>
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  Rate
+                </a>
+                <a class="navbar-item">
+                  Games
+                </a>
+                <hr class="navbar-divider">
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="panel-block has-text-danger">
+                <span class="panel-icon">
+                  <i class="fas" aria-hidden="true"></i>
+                </span>
+                <strong>Bob_Johnson82</strong>
+              </a>
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  Rate
+                </a>
+                <a class="navbar-item">
+                  Games
+                </a>
+                <hr class="navbar-divider">
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
-    </section>
-  </body>
+  </section>
+</body>

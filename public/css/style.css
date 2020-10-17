@@ -2,7 +2,6 @@
 /* 49f308 */
 #user-icon {
   font-size: 100px;
-
 }
 
 #friend-name {
@@ -26,31 +25,30 @@ span {
 }
 
 #friend-rating {
-    max-width: 90px;
+  max-width: 90px;
 }
-
 
 #user-rating {
-    max-width: 110px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+  max-width: 110px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-.fas{
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 30px;
+.fas {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 30px;
 }
 
-.fa {
+/* .fa {
   font-size: 30px;
   padding-bottom: 20px;
   padding-right: 10px;
 
-}
+} */
 
 .button {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 #friend-card {
@@ -64,14 +62,16 @@ span {
   margin-right: 25%;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://miro.medium.com/max/4192/1*yj9_ugyJn6XQ5Da9IqCXyg.jpeg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://miro.medium.com/max/4192/1*yj9_ugyJn6XQ5Da9IqCXyg.jpeg");
   height: 50%;
   background-position: center;
   background-repeat: no-repeat;
@@ -102,7 +102,7 @@ body, html {
   padding: 5px;
 }
 
-.input{
+.input {
   max-width: 100%;
   width: 100%;
 }
@@ -116,15 +116,15 @@ body, html {
   text-align: center;
   margin: 80px;
   font-size: 60px;
-  font-family: 'Audiowide', cursive;
+  font-family: "Audiowide", cursive;
   color: #49f308;
 }
 
-html { 
+html {
   background-image: url("../images/background.png");
-  background-repeat:  no-repeat;
+  background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size:  cover;
+  background-size: cover;
   background-color: #999;
 }
 
@@ -146,3 +146,82 @@ html {
 /* .solid {
   background-color: rgb(150, 147, 147);
 } */
+
+#bullseye {
+  font-size: 30px;
+  padding-bottom: 25px;
+  padding-right: 10px;
+  color: red;
+}
+
+#smiley {
+  font-size: 30px;
+  padding-bottom: 25px;
+  padding-right: 10px;
+  color: #fee133;
+}
+
+#poop {
+  font-size: 30px;
+  padding-bottom: 25px;
+  padding-right: 10px;
+  color: brown;
+}
+
+#bottle {
+  font-size: 30px;
+  padding-bottom: 25px;
+  padding-right: 10px;
+  color: forestgreen;
+}
+
+#moon {
+  font-size: 30px;
+  padding-bottom: 25px;
+  padding-right: 10px;
+  color: ivory;
+}
+
+#headphone {
+  font-size: 30px;
+  padding-bottom: 25px;
+  padding-right: 10px;
+  color: lightskyblue;
+  
+}
+
+#emoji-font {
+  color: white;
+}
+
+#smiley:hover {
+  color: blue;
+}
+
+#bullseye:hover {
+  color: blue;
+}
+
+#poop:hover {
+  color: blue;
+}
+
+#bottle:hover {
+  color: blue;
+}
+
+#moon:hover {
+  color: blue;
+}
+
+#headphone:hover {
+  color: blue;
+}
+
+#invitebutton:hover {
+  background-color: #f13668;
+}
+
+#removebutton:hover {
+  background-color: #3273dc;
+}
