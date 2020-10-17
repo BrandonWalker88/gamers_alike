@@ -28,10 +28,11 @@
               <i class="fas fa-smile emoji" id="smile-icon"></i>
               <span><strong>User Rep Score</strong></span>
             </div>
-            <img src="../images/rating1.png" alt="rating" id="user-rating" /><br />
-            <i class="fas fa-skull emoji"></i>
-            <i class="fas fa-thumbs-up emoji"></i>
-            <i class="fas fa-smile-beam emoji"></i>
+            <i class="fas fa-star is-clickable is-focused" id="s1"></i>
+            <i class="fas fa-star is-clickable is-focused" id="s2"></i>
+            <i class="fas fa-star is-clickable is-focused" id="s3"></i>
+            <i class="fas fa-star is-clickable is-focused" id="s4"></i>
+            <i class="fas fa-star is-clickable is-focused" id="s5"></i>
           </div>
         </div>
       </div>
@@ -362,84 +363,30 @@
               </div>
             </div>
           </article>
-          {{!-- <p class="bd-notification opaque is-danger">
-          <article class="panel">
-            <p class="panel-heading">
-              Current Game
-            </p>
-            <h3 class="has-text-white">Counter Strike: GO</h3>
-            <h5 class="has-text-white">Invites Accepted</h5>
-            <div class="panel-block">
-            </div>
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="has-text-white">
-                Tommy864
-              </a>
-
-              <div class="navbar-dropdown">
-                <a class="navbar-item">
-                  Rate
-                </a>
-                <a class="navbar-item">
-                  Games
-                </a>
-                <hr class="navbar-divider">
-              </div>
-            </div>
-                      <p class="bd-notification opaque is-danger">
-          <article class="panel">
-            <p class="panel-heading">
-              Current Game
-            </p>
-            <h3 class="has-text-white">Counter Strike: GO</h3>
-            <h5 class="has-text-white">Invites Sent</h5>
-            <div class="panel-block">
-            </div>
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="has-text-white">
-                Slayerrr
-              </a>
-
-              <div class="navbar-dropdown">
-                <a class="navbar-item">
-                  Rate
-                </a>
-                <a class="navbar-item">
-                  Games
-                </a>
-                <hr class="navbar-divider">
-              </div>
-            </div>
-             --}}
-          {{!-- <div class="column is-3">
-          <div class="card opaque">
-            <header class="card-header">
-              <p class="card-header-title">
-                My Current Game
-              </p>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                <strong>Counter Strike: GO</strong><br><br>
-                <ul>
-                  <li class="has-text-white">Bob_Johnson82</li>
-                </ul>
-              </div>
-            </div>
-            <hr>
-            <div class="card-content">
-              <div class="content">
-                <strong>Invites Sent</strong><br><br>
-                <ul>
-                  <li class="input has-text-white">Slayerrr</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> --}}
-
-
         </div>
   </section>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      $("#s1").click(function () {
+        $(".fa-star").css("color", "black")
+        $("#s1").css("color", "yellow");
+      })
+      $("#s2").click(function () {
+        $(".fa-star").css("color", "black")
+        $("#s1, #s2").css("color", "yellow");
+      })
+      $("#s3").click(function () {
+        $(".fa-star").css("color", "black")
+        $("#s1, #s2, #s3").css("color", "yellow");
+      })
+      $("#s4").click(function () {
+        $(".fa-star").css("color", "black")
+        $("#s1, #s2, #s3, #s4").css("color", "yellow");
+      })
+      $("#s5").click(function () {
+        $(".fa-star").css("color", "black")
+        $(".fa-star").css("color", "yellow");
+      })
+    });
+  </script>
 </body>
