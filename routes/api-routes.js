@@ -69,7 +69,7 @@ module.exports = function (app) {
 //     }
 //   });
 
-  app.post("/api/sendFriendInvite", function (req, res) {
+  app.put("/api/sendFriendInvite", function (req, res) {
     if (req.body.requesteeId != req.user.id) {
       console.log("Send friend request");
       req.user
@@ -80,12 +80,26 @@ module.exports = function (app) {
     }
   });
 
-  app.post("/api/sendGameInvite", function (req,res) {
+  app.put("/api/sendGameInvite", function (req,res) {
+      req.user.id = 1;
       if (req.body.requesteeId != req.user.id) {
           req.user.addBeingInvited(req.body.requesteeId)
+          .then(result => {
+              console.log(result);
+              res.status(201).send(result);
+          })
       }
   })
 
+  app.get("/api/IncomingFriends", function (req,res) {
+      
+  })
 
 
+  app.get("/allUsers", function (req,res) {
+      console.log("hello");
+      db.User.findAll({}).then(user => {
+          res.render("test", {user: user});
+      })
+  })
 };
