@@ -34,11 +34,11 @@ span {
   padding-bottom: 10px;
 }
 
-.fas {
+/* .fas {
   padding-left: 20px;
   padding-right: 20px;
   font-size: 30px;
-}
+} */
 
 /* .fa {
   font-size: 30px;
@@ -224,4 +224,15 @@ html {
 
 #removebutton:hover {
   background-color: #3273dc;
+}
+
+.fa-star {
+  font-size: 30px;
+  padding-right: 5px;
+  padding-top: 10px;
+}
+
+#rate-font {
+  font-size: 20px;
+  margin-right: 10px;
 }

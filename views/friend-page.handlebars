@@ -18,12 +18,13 @@
           <div class="card has-text-centered" id="user-card">
             <div class="user-rep">
               <i class="fas fa-smile" id="smile-icon"></i>
-              <span><strong>User Rep Score</strong></span>
+              <span><strong id="rate-font">User Rep Score</strong></span>
             </div>
-            <img src="../../public/images/rating1.png" alt="rating" id="user-rating" /><br />
-            <i class="fas fa-skull"></i>
-            <i class="fas fa-thumbs-up"></i>
-            <i class="fas fa-smile-beam"></i>
+            <i class="fas fa-star" id="s1"></i>
+            <i class="fas fa-star" id="s2"></i>
+            <i class="fas fa-star" id="s3"></i>
+            <i class="fas fa-star" id="s4"></i>
+            <i class="fas fa-star" id="s5"></i>
           </div>
         </div>
       </div>
@@ -33,12 +34,16 @@
     <div class="container">
       <div class="columns">
         <div class="column is-2">
-          <i class="fa fa-grin-squint-tears is-clickable" id="smiley"></i><span><strong id="emoji-font">Lol!</strong></span><br />
-          <i class="fa fa-bullseye is-clickable" id="bullseye"></i><span><strong id="emoji-font">Pro Gamer</strong></span><br />
-          <i class="fa fa-poop is-clickable" id="poop"></i><span><strong id="emoji-font" >Cheater!</strong></span><br />
-          <i class="fa fa-wine-bottle is-clickable" id="bottle"></i><span><strong id="emoji-font" >G.U.I.</strong></span><br />
+          <i class="fa fa-grin-squint-tears is-clickable" id="smiley"></i><span><strong
+              id="emoji-font">Lol!</strong></span><br />
+          <i class="fa fa-bullseye is-clickable" id="bullseye"></i><span><strong id="emoji-font">Pro
+              Gamer</strong></span><br />
+          <i class="fa fa-poop is-clickable" id="poop"></i><span><strong id="emoji-font">Cheater!</strong></span><br />
+          <i class="fa fa-wine-bottle is-clickable" id="bottle"></i><span><strong
+              id="emoji-font">G.U.I.</strong></span><br />
           <i class="fa fa-moon is-clickable" id="moon"></i><span><strong id="emoji-font">Nightowl</strong></span><br />
-          <i class="fa fa-headphones is-clickable" id="headphone"></i><span><strong id="emoji-font">Talker</strong></span><br />
+          <i class="fa fa-headphones is-clickable" id="headphone"></i><span><strong
+              id="emoji-font">Talker</strong></span><br />
           <!-- <div class="buttons"> -->
           <button class="button is-link" id="invitebutton"><strong>Invite to Play!</strong></button><br />
           <button class="button is-danger" id="removebutton"><strong>Remove From List!</strong></button>
@@ -209,4 +214,28 @@
         </div>
       </div>
   </section>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#s1").click(function () {
+        $(".fa-star").css("color", "black")
+        $("#s1").css("color", "yellow");
+      })
+      $("#s2").click(function () {
+        $(".fa-star").css("color", "black")
+        $("#s1, #s2").css("color", "yellow");
+      })
+      $("#s3").click(function () {
+        $(".fa-star").css("color", "black")
+        $("#s1, #s2, #s3").css("color", "yellow");
+      })
+      $("#s4").click(function () {
+        $(".fa-star").css("color", "black")
+        $("#s1, #s2, #s3, #s4").css("color", "yellow");
+      })
+      $("#s5").click(function () {
+        $(".fa-star").css("color", "black")
+        $(".fa-star").css("color", "yellow");
+      })
+    });
+  </script>
 </body>
