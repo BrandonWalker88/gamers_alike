@@ -12,11 +12,8 @@ module.exports = function (sequelize, DataTypes) {
       },
     },
     password: {
-      type: DataTypes.STRING(64),
+      type: DataTypes.STRING,
       allowNull: true,
-      validate: {
-        is: /^[0-9a-f]{64}$/i,
-      },
     },
     user_icon: {
       type: DataTypes.STRING,

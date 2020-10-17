@@ -7,7 +7,7 @@ var db = require("../models");
 passport.use(
   new SteamStrategy(
     {
-      returnURL: "http://localhost:8080/auth/steam/return",
+      returnURL: "https://gamers-alike.herokuapp.com/auth/steam/return",
       realm: "https://gamers-alike.herokuapp.com/",
       apiKey: "D94580D5312585B718FA616F6F1CB4F0", //Jason's Dev API Key
     },
@@ -41,7 +41,7 @@ passport.use(
       // When a user tries to sign in this code runs
       db.User.findOne({
         where: {
-          username: user,
+          user_name: user,
         },
       }).then(function (dbUser) {
         // If there's no user with the given email
@@ -62,7 +62,6 @@ passport.use(
     }
   )
 );
-// }
 
 // In order to help keep authentication state across HTTP requests,
 // Sequelize needs to serialize and deserialize the user
