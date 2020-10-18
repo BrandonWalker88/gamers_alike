@@ -1,33 +1,46 @@
 const db = require("../models");
 const passport = require("../config/passport");
-const axios = require("axios")
+const axios = require("axios");
+const CORS = require("cors");
 
 const options = {
-  method: 'GET',
-  url: 'https://rapidapi.p.rapidapi.com/games',
+  method: "GET",
+  url: "https://rapidapi.p.rapidapi.com/games",
   headers: {
-    'x-rapidapi-host': 'rawg-video-games-database.p.rapidapi.com',
-    'x-rapidapi-key': '09195d092amshff92067eafd4eeap1cb6a0jsn32c3b856499c'
-  }
+    "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
+    "x-rapidapi-key": "09195d092amshff92067eafd4eeap1cb6a0jsn32c3b856499c",
+  },
 };
 
 module.exports = function (app) {
   app.get(
-    "/signin/auth/steam",
-    passport.authenticate("steam", { failureRedirect: "/signin" }),
+    "/auth/steam",
+    passport.authenticate("steam", {
+      failureRedirect: "/login",
+    }),
     function (req, res) {
-      res.redirect("/signin");
+      // The request will be redirected to Steam for authentication, so
+      // this function will not be called.
     }
   );
 
   app.get(
-    "/signin/auth/steam/return",
-    passport.authenticate("steam", { failureRedirect: "/signin" }),
+    "/auth/steam/return",
+    passport.authenticate("steam", {
+      failureRedirect: "/login",
+    }),
     function (req, res) {
-      // We have to get data from Steam API and use it to make a user model
-      res.redirect("/home");
+      // Successful authentication, redirect home.
+      res.redirect("/");
     }
   );
+  app.get("/login", function (req, res) {
+    res.send("Failed to Login");
+  });
+  app.get("/logout", function (req, res) {
+    req.logout();
+    res.redirect("/");
+  });
 
   // Just the thing the sign in/sign up needs to work and easily grab user data
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
@@ -46,21 +59,6 @@ module.exports = function (app) {
       .catch(function (err) {
         res.status(401).json(err);
       });
-  });
-
-  // Logouts user.
-  app.get("/logout", function (req, res) {
-    db.User.update(
-      { current_status: false },
-      {
-        where: {
-          id: req.user.id,
-        },
-      }
-    ).then(function () {
-      req.logout();
-      res.redirect("/login");
-    });
   });
 
   // Testing Routes. Should give basic routing structure
@@ -305,13 +303,9 @@ module.exports = function (app) {
     }
   });
 
-//-----------------------------------------------|
-//                                               |
-// STARTING GAME API CALLS                       |
-//                                               |
-// ----------------------------------------------| 
-
-
-
-
+  //-----------------------------------------------|
+  //                                               |
+  // STARTING GAME API CALLS                       |
+  //                                               |
+  // ----------------------------------------------|
 };
