@@ -51,21 +51,24 @@ module.exports = function (app) {
     });
   });
 
-
   app.post("/api/sendFriendInvite/", function (req, res) {
-      console.log(req.body.requesteeId);
-      
+    console.log(req.body.requesteeId);
+    if (req.body.requesteeId != req.user.id) {
       db.User.findOne({
-          where: {
-              id: 1
-          }
-      }).then(user => {
-          return user.addRequestees(req.body.requesteeId)
-      }).then(result => {
-        console.log(result);
+        where: {
+          id: req.user.id,
+        },
       })
-      
-      
+        .then((user) => {
+          return user.addRequestees(req.body.requesteeId);
+        })
+        .then((result) => {
+          console.log(result);
+        });
+    } else {
+      res.status(400).send("Cannot friend yourself");
+    }
+
     // if (req.body.requesteeId != testUser.id) {
     //   console.log("Send friend request");
     //   testUser
@@ -76,25 +79,110 @@ module.exports = function (app) {
     // }
   });
 
-  app.put("/api/sendGameInvite/", function (req,res) {
+  app.post("/api/sendGameInvite/", function (req, res) {
     console.log(req.body.requesteeId);
-      
-    db.User.findOne({
+    if (req.body.requesteeId != req.user.id) {
+      db.User.findOne({
         where: {
-            id: 1
-        }
-    }).then(user => {
-        return user.addRequestees(req.body.requesteeId)
-    }).then(result => {
-      console.log(result);
-    })
-  })
+          id: req.user.id,
+        },
+      })
+        .then((user) => {
+          return user.addBeingInvited(req.body.requesteeId);
+        })
+        .then((result) => {
+          console.log(result);
+        });
+    } else {
+      console.log("an error occurred");
+      res.status(400).send("Cannot friend yourself");
+    }
+  });
 
-  app.get("/api/IncomingFriends", function (req,res) {
-      
-  })
+  app.get("/IncomingFriends", function (req, res) {
+    console.log("incoming friends");
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      }).then((user) => {
+        return user.getRequesters().then((users) => {
+          // console.log(users);
+          res.render("testfriendsin", { user: users });
+        });
+      });
+    } else {
+      res.status(401).send("You are not allowed here");
+    }
+  });
 
-  app.get("/api/IncomingFriends", function (req, res) {});
+  app.post("/api/IncomingFriends", function (req, res) {
+    console.log(req.user.id);
+    console.log("adding friend...");
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      }).then((user) => {
+        return user.addFriends(req.body.newFriendId).then((result) => {
+          console.log(result);
+          return user.removeRequesters(req.body.newFriendId).then((results) => {
+            console.log(results);
+            res.redirect("/IncomingFriends");
+          });
+        });
+      });
+    } else {
+      res.status(401).redirect("/login");
+    }
+  });
+
+  app.delete("/api/IncomingFriends", function (req, res) {
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      }).then((user) => {
+        return user
+          .removeRequesters(req.body.rejectFriendId)
+          .then((results) => {
+            console.log(results);
+            res.redirect("/IncomingFriends");
+          });
+      });
+    }
+  });
+
+  app.get("/Friends", function (req, res) {
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      }).then((user) => {
+        return user.getFriends().then((friends) => {
+          res.render("testfriendslist", { user: friends });
+        });
+      });
+    }
+  });
+
+  app.get("/GameInvites", function (req, res) {
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      }).then((user) => {
+        return user.getInviters().then((users) => {
+          res.render("testgameinvites", { user: users });
+        });
+      });
+    }
+  });
 
   app.get("/allUsers", function (req, res) {
     console.log("hello");
