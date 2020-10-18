@@ -5,8 +5,8 @@
             {{#dataValues}}
             <li>
                 {{{id}}}. {{{user_name}}}
-                <button class="friendMe" data-friend={{{id}}}>Friend Me</button>
-                <button class="gameInvite" data-game={{{id}}}>Game Invite</button>
+                <button class="accept" data-friend={{{id}}}>Accept</button>
+                <button class="reject" data-reject={{{id}}}>Reject</button>
             </li>
             {{/dataValues}}
             {{/each}}
@@ -16,40 +16,40 @@
         <button class="logout"><a href="/logout">Log Out</a></button>
         <button class="game-invites"><a href="/GameInvites">game-invites</a></button>
         <button class="incoming-friends"><a href="/IncomingFriends">Incoming Friends</a></button>
-        <button class="incoming-friends"><a href="/IncomingFriends">Friends List</a></button>
+        <button class="incoming-friends"><a href="/Friends">Friends List</a></button>
     </section>
 </div>
 
 <script>
-    console.log("hello world");
-    $(".friendMe").on("click", function (event) {
+    console.log("incoming friends");
+    $(".accept").on("click", function (event) {
         event.preventDefault();
         console.log("friend me clicked");
         const id = $(this).data("friend");
-        const potentialFriend = {
-            requesteeId: $(this).data("friend"),
+        const acceptedFriend = {
+            newFriendId: $(this).data("friend"),
         };
 
-        $.ajax("/api/sendFriendInvite/", {
+        $.ajax("/api/IncomingFriends", {
             type: "POST",
-            data: potentialFriend,
+            data: acceptedFriend,
         }).then(function() {
             console.log("sent friend request");
             {{!-- location.reload(); --}}
         });
     });
 
-    $(".gameInvite").on("click", function (event) {
+    $(".reject").on("click", function (event) {
         event.preventDefault();
         console.log("Game Invite clicked");
-        const id = $(this).data("game");
-        const gameInvite = {
-            requesteeId: $(this).data("game"),
+        const id = $(this).data("reject");
+        const rejectedUser = {
+            rejectFriendId: $(this).data("reject"),
         };
 
-        $.ajax("/api/sendGameInvite/", {
+        $.ajax("/api/IncomingFriends", {
             type: "POST",
-            data: gameInvite,
+            data: rejectedUser,
         }).then(function() {
             console.log("sent game invite");
             {{!-- location.reload(); --}}

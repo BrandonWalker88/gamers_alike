@@ -1,0 +1,20 @@
+<div>
+    <section>
+        <ul>
+            {{#each user}}
+            {{#dataValues}}
+            <li>
+                {{{id}}}. {{{user_name}}}
+                <button class="gameInvite" data-game={{{id}}}>Game Invite</button>
+            </li>
+            {{/dataValues}}
+            {{/each}}
+        </ul>
+    </section>
+    <section>
+        <button class="logout"><a href="/logout">Log Out</a></button>
+        <button class="game-invites"><a href="/GameInvites">game-invites</a></button>
+        <button class="incoming-friends"><a href="/IncomingFriends">Incoming Friends</a></button>
+        <button class="incoming-friends"><a href="/IncomingFriends">Friends List</a></button>
+    </section>
+</div>

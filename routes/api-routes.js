@@ -1,6 +1,15 @@
 const db = require("../models");
 const passport = require("../config/passport");
-const { Op } = require("sequelize");
+const axios = require("axios")
+
+const options = {
+  method: 'GET',
+  url: 'https://rapidapi.p.rapidapi.com/games',
+  headers: {
+    'x-rapidapi-host': 'rawg-video-games-database.p.rapidapi.com',
+    'x-rapidapi-key': '09195d092amshff92067eafd4eeap1cb6a0jsn32c3b856499c'
+  }
+};
 
 module.exports = function (app) {
   app.get(
@@ -20,10 +29,12 @@ module.exports = function (app) {
     }
   );
 
+  // Just the thing the sign in/sign up needs to work and easily grab user data
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
   });
 
+  // Sign actually builds the user out
   app.post("/api/signup", function (req, res) {
     db.User.create({
       user_name: req.body.username,
@@ -37,12 +48,13 @@ module.exports = function (app) {
       });
   });
 
+  // Logouts user.
   app.get("/logout", function (req, res) {
     db.User.update(
       { current_status: false },
       {
         where: {
-          id: req.params.userId,
+          id: req.user.id,
         },
       }
     ).then(function () {
@@ -51,61 +63,255 @@ module.exports = function (app) {
     });
   });
 
-  //   app.get("/api/user/:id", function (req, res) {
-  //     if (!req.user) {
-  //       res.redirect(401, "/");
-  //     } else {
-  //     }
-  //   });
+  // Testing Routes. Should give basic routing structure
 
-  app.post("/api/sendFriendInvite/", function (req, res) {
-      console.log(req.body.requesteeId);
-      
-      db.User.findOne({
-          where: {
-              id: 1
-          }
-      }).then(user => {
-          return user.addRequestees(req.body.requesteeId)
-      }).then(result => {
-        console.log(result);
-      })
-      
-      
-    // if (req.body.requesteeId != testUser.id) {
-    //   console.log("Send friend request");
-    //   testUser
-    //     .addRequestees(req.body.requesteeId)
-    //     .then((result) => res.status(201).send(result));
-    // } else {
-    //   res.status(400).send("Cannot friend yourself");
-    // }
-  });
-
-  app.put("/api/sendGameInvite/", function (req,res) {
-    console.log(req.body.requesteeId);
-      
-    db.User.findOne({
-        where: {
-            id: 1
-        }
-    }).then(user => {
-        return user.addRequestees(req.body.requesteeId)
-    }).then(result => {
-      console.log(result);
-    })
-  })
-
-  app.get("/api/IncomingFriends", function (req,res) {
-      
-  })
-
-  app.get("/api/IncomingFriends", function (req, res) {});
-
+  // Just displaying users on test page
   app.get("/allUsers", function (req, res) {
     console.log("hello");
     db.User.findAll({}).then((user) => {
       res.render("test", { user: user });
     });
   });
+
+  // Send Friend Invites
+  app.post("/api/sendFriendInvite/", function (req, res) {
+    console.log(req.body.requesteeId);
+    if (req.body.requesteeId != req.user.id) {
+      db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      })
+        .then((user) => {
+          return user.addRequestees(req.body.requesteeId);
+        })
+        .then((result) => {
+          console.log(result);
+        });
+    } else {
+      res.status(400).send("Cannot friend yourself");
+    }
+  });
+
+  // Send Game invite
+  app.post("/api/sendGameInvite/", function (req, res) {
+    console.log(req.body.requesteeId);
+    if (req.body.requesteeId != req.user.id) {
+      db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      })
+        .then((user) => {
+          return user.addBeingInvited(req.body.requesteeId);
+        })
+        .then((result) => {
+          console.log(result);
+        });
+    } else {
+      console.log("an error occurred");
+      res.status(400).send("Cannot friend yourself");
+    }
+  });
+
+  // Getting incoming friend requests
+  app.get("/IncomingFriends", function (req, res) {
+    console.log("incoming friends");
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      }).then((user) => {
+        return user.getRequesters().then((users) => {
+          // console.log(users);
+          res.render("testfriendsin", { user: users });
+        });
+      });
+    } else {
+      res.status(401).send("You are not allowed here");
+    }
+  });
+
+  // Adding to friends to friend table or simply put, Saying yes to a friend request
+  app.post("/api/IncomingFriends", function (req, res) {
+    console.log(req.user.id);
+    console.log("adding friend...");
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      }).then((user) => {
+        return user.addFriends(req.body.newFriendId).then((result) => {
+          console.log(result);
+          return user.removeRequesters(req.body.newFriendId).then((results) => {
+            console.log(results);
+            res.redirect("/IncomingFriends");
+          });
+        });
+      });
+    } else {
+      res.status(401).redirect("/login");
+    }
+  });
+
+  // Deleting a request from the table of friend requests or simply put rejecting a friend request
+  app.post("/api/IncomingFriends", function (req, res) {
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      }).then((user) => {
+        return user
+          .removeRequesters(req.body.rejectFriendId)
+          .then((results) => {
+            console.log(results);
+            res.redirect("/IncomingFriends");
+          });
+      });
+    } else {
+      res.status(401).redirect("/login");
+    }
+  });
+
+  // Displaying user friends
+  app.get("/Friends", function (req, res) {
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      }).then((user) => {
+        return user.getFriends().then((friends) => {
+          res.render("testfriendslist", { user: friends });
+        });
+      });
+    } else {
+      res.status(401).redirect("/login");
+    }
+  });
+
+  //----------------------------------------------------
+  //                                                   |
+  //   GAME INVITE SECTION                             |
+  //---------------------------------------------------|
+
+  // Grabbing incoming game invites and displaying it
+  app.get("/GameInvites", function (req, res) {
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      }).then((user) => {
+        return user.getInviter().then((users) => {
+          res.render("testgameinvites", { user: users });
+        });
+      });
+    }
+  });
+
+  // Accepting game invite and destroying of the row where it lies in the table of gameInvites
+  // Probably should set when it destroys of the row at a timer ie. "15 mins"
+  app.post("/api/GameInvites", function (req, res) {
+    console.log(req.user.id);
+    console.log("Grouping up...");
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      }).then((user) => {
+        // We should grab the acceptedId user discord channel invite
+        // If they don't have one give them the user discord channel invite
+        // else say they can buddy up cause of no discord links
+        return user.removeInviter(req.body.acceptedId).then((result) => {
+          console.log(result);
+          res.redirect("/IncomingFriends");
+        });
+      });
+    } else {
+      res.status(401).redirect("/login");
+    }
+  });
+
+  // Reject Game invite and removes the row of from the table of invites
+  app.post("/api/GameInvites", function (req, res) {
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      }).then((user) => {
+        return user.removeInviter(req.body.rejectedId).then((results) => {
+          console.log(results);
+          res.redirect("/GameInvites");
+        });
+      });
+    } else {
+      res.status(401).redirect("/login");
+    }
+  });
+
+  // ----------------------------------------------
+  //                                              |
+  // GETTING USER ATTRIBUTE DATA                  |
+  // ---------------------------------------------|
+
+  // This is purely an abstract visual version of how it should look and work
+  // Ideally this should be done in an async version of the first immediate user data call and set there
+  // Plus you really don't need it be pulled out this way
+  // just "user => res.render("target-handlebar-file" ex. "home", {name-of-extraction: user} ex. {userdata: user} )
+  // If done this way remember to use {{#dataValues}}whatever data you are grabbing{{/dataValues}} to grab the real stuff
+  app.get("/home", function (req, res) {
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      }).then((user) => {
+        const attributes = [];
+        attributes.push(
+          { attr1: user.user_attr1 },
+          { attr2: user.user_attr2 },
+          { attr3: user.user_attr3 },
+          { attr4: user.user_attr4 },
+          { attr5: user.user_attr5 },
+          { attr6: user.user_attr6 }
+        );
+
+        res.render("home", attributes);
+      });
+    } else {
+      res.status(401).redirect("/login");
+    }
+  });
+
+  // Simple version that does require {{#dataValues}} grab the dat in handlebars
+  // But it does grab friend or potential user you want check out and give access to their data
+  app.get("/friend", function (req, res) {
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          id: req.body.friendId,
+        },
+      }).then((friend) => {
+        res.render("friend-page", { friendData: friend });
+      });
+    } else {
+      res.status(401).redirect("/login");
+    }
+  });
+
+//-----------------------------------------------|
+//                                               |
+// STARTING GAME API CALLS                       |
+//                                               |
+// ----------------------------------------------| 
+
+
+
+
 };
