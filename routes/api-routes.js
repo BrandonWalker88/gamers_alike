@@ -303,7 +303,7 @@ module.exports = function (app) {
 
   // Simple version that does require {{#dataValues}} grab the dat in handlebars
   // But it does grab friend or potential user you want check out and give access to their data
-  app.get("/friend-page", async function (req, res) {
+  app.get("/friend-page/:id", async function (req, res) {
     try{
       
       const friend = await db.User.findOne({
@@ -317,7 +317,6 @@ module.exports = function (app) {
           id: req.user.id,
         },
       });
-  
       // axios call to get games data
       await res.render("friend-page", { friendData: friend , userData: user});
     } catch(err) {
