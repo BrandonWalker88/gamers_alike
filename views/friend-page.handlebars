@@ -1,5 +1,5 @@
 <body>
-    <section class="section">
+  <section class="section">
     <div class="container">
       <div class="columns">
         <div class="column is-3" id="user-icon-img">
@@ -19,12 +19,12 @@
           <div class="field">
             <div class="control">
 
-          <div class="card has-text-centered opaque" id="friend-name">
-            <strong>Phoenix22's Top Games</strong>
-          </div>
+              <div class="card has-text-centered opaque" id="friend-name">
+                <strong>Phoenix22's Top Games</strong>
+              </div>
 
             </div>
-            </div>
+          </div>
         </div>
         <div class="column is-3">
           <div class="card has-text-centered" id="user-card">
@@ -46,16 +46,22 @@
     <div class="container">
       <div class="columns">
         <div class="column is-3">
-          <i class="fa fa-grin-squint-tears is-clickable" id="smiley"></i><span><strong
-              id="emoji-font">Lol!</strong></span><br />
-          <i class="fa fa-bullseye is-clickable" id="bullseye"></i><span><strong id="emoji-font">Pro
-              Gamer</strong></span><br />
-          <i class="fa fa-poop is-clickable" id="poop"></i><span><strong id="emoji-font">Cheater!</strong></span><br />
-          <i class="fa fa-wine-bottle is-clickable" id="bottle"></i><span><strong
-              id="emoji-font">G.U.I.</strong></span><br />
-          <i class="fa fa-moon is-clickable" id="moon"></i><span><strong id="emoji-font">Nightowl</strong></span><br />
-          <i class="fa fa-headphones is-clickable" id="headphone"></i><span><strong
-              id="emoji-font">Talker</strong></span><br />
+          <i onclick="addone1()"class="fa fa-grin-squint-tears is-clickable" id="smiley"></i><span><strong
+              id="emoji-font">Lol!</strong></span>
+          <span><strong id="thisone1">33</strong></span><br />
+          <i onclick="addone2()" class="fa fa-bullseye is-clickable" id="bullseye"></i><span><strong id="emoji-font">Pro
+              Gamer</strong></span>
+              <span><strong id="thisone2">64</strong></span><br />
+          <i onclick="addone3()" class="fa fa-poop is-clickable" id="poop"></i><span><strong id="emoji-font">Cheater!</strong></span>
+          <span><strong id="thisone3">24</strong></span><br />
+          <i onclick="addone4()" class="fa fa-wine-bottle is-clickable" id="bottle"></i><span><strong
+              id="emoji-font">G.U.I.</strong></span>
+             <span><strong id="thisone4">15</strong></span> <br />
+          <i onclick="addone5()" class="fa fa-moon is-clickable" id="moon"></i><span><strong id="emoji-font">Nightowl</strong></span>
+          <span><strong id="thisone5">46</strong></span><br />
+          <i onclick="addone6()" class="fa fa-headphones is-clickable" id="headphone"></i><span><strong
+              id="emoji-font">Talker</strong></span>
+              <span><strong id="thisone6">37</strong></span><br />
           <!-- <div class="buttons"> -->
           <button class="button is-link" id="invitebutton"><strong>Invite to Play!</strong></button><br />
           <button class="button is-danger" id="removebutton"><strong>Remove From List!</strong></button>
@@ -250,5 +256,41 @@
         $(".fa-star").css("color", "yellow");
       })
     });
+
+    function addone1() {
+      var foo = parseInt(document.getElementById('thisone1').innerHTML);
+      foo = foo + 1;
+      document.getElementById('thisone1').innerHTML = foo;
+    }
+
+    function addone2() {
+      var foo = parseInt(document.getElementById('thisone2').innerHTML);
+      foo = foo + 1;
+      document.getElementById('thisone2').innerHTML = foo;
+    }
+
+     function addone3() {
+      var foo = parseInt(document.getElementById('thisone3').innerHTML);
+      foo = foo + 1;
+      document.getElementById('thisone3').innerHTML = foo;
+    }
+
+     function addone4() {
+      var foo = parseInt(document.getElementById('thisone4').innerHTML);
+      foo = foo + 1;
+      document.getElementById('thisone4').innerHTML = foo;
+    }
+
+     function addone5() {
+      var foo = parseInt(document.getElementById('thisone5').innerHTML);
+      foo = foo + 1;
+      document.getElementById('thisone5').innerHTML = foo;
+    }
+
+     function addone6() {
+      var foo = parseInt(document.getElementById('thisone6').innerHTML);
+      foo = foo + 1;
+      document.getElementById('thisone6').innerHTML = foo;
+    }
   </script>
 </body>
