@@ -42,7 +42,7 @@ module.exports = function (app) {
       { current_status: false },
       {
         where: {
-          id: req.params.userId,
+          id: req.user.id,
         },
       }
     ).then(function () {
@@ -51,12 +51,6 @@ module.exports = function (app) {
     });
   });
 
-  //   app.get("/api/user/:id", function (req, res) {
-  //     if (!req.user) {
-  //       res.redirect(401, "/");
-  //     } else {
-  //     }
-  //   });
 
   app.post("/api/sendFriendInvite/", function (req, res) {
       console.log(req.body.requesteeId);

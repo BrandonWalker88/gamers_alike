@@ -18,11 +18,11 @@ passport.use(
         // represent the logged-in user.  In a typical application, you would want
         // to associate the Steam account with a user record in your database,
         // and return that user instead.
-        db.User.findOne({
-          where: {
-            username: identifier,
-          },
-        });
+        // db.User.findOne({
+        //   where: {
+        //     username: identifier,
+        //   },
+        // });
 
         profile.identifier = identifier;
         return done(null, profile);
