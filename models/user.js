@@ -29,22 +29,22 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.DECIMAL,
     },
     user_attr1: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
     },
     user_attr2: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
     },
     user_attr3: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
     },
     user_attr4: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
     },
     user_attr5: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
     },
     user_attr6: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
     },
     steam_account_linked: {
       type: DataTypes.BOOLEAN,
@@ -65,10 +65,6 @@ module.exports = function (sequelize, DataTypes) {
       validate: {
         isUrl: true,
       },
-    },
-    looking_for: {
-      type: DataTypes.BOOLEAN,
-      default: false,
     },
     current_game: {
       type: DataTypes.STRING,
