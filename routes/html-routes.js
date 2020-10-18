@@ -14,6 +14,7 @@ module.exports = function (app) {
   });
 
   app.get("/friend-page", function (req, res) {
+    
     res.render("friend-page");
   });
 
@@ -25,16 +26,20 @@ module.exports = function (app) {
     // If the user already has an account send them to the home page
     if (req.user) {
       res.redirect("/allUsers");
+    } else {
+      res.render("signup");
     }
-    res.render("signup");
+    
   });
 
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the home page
     if (req.user) {
       res.redirect("/allUsers");
+    } else{
+      res.render("login");
     }
-    res.render("login");
+    
   });
 
   // Here we've add our isAuthenticated middleware to this route.

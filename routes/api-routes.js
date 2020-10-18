@@ -286,22 +286,45 @@ module.exports = function (app) {
     }
   });
 
-  // Simple version that does require {{#dataValues}} grab the dat in handlebars
-  // But it does grab friend or potential user you want check out and give access to their data
-  app.get("/friend", function (req, res) {
+  app.post("/api/UpdateUserRating", function (req, res) {
     if (req.user) {
       db.User.findOne({
         where: {
-          id: req.body.friendId,
+          id: req.user.id,
         },
-      }).then((friend) => {
-        res.render("friend-page", { friendData: friend });
+      }).then((user) => {
+        return user.addBeingRated(req.body.raterID).then((result) => {
+          console.log(result);
+          user.rating += req.body.rating;
+        });
       });
-    } else {
-      res.status(401).redirect("/login");
     }
   });
 
+  // Simple version that does require {{#dataValues}} grab the dat in handlebars
+  // But it does grab friend or potential user you want check out and give access to their data
+  app.get("/friend-page", async function (req, res) {
+    try{
+      
+      const friend = await db.User.findOne({
+        where: {
+          id: req.body.id,
+        },
+      });
+  
+      const user = await db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      });
+  
+      // axios call to get games data
+      await res.render("friend-page", { friendData: friend , userData: user});
+    } catch(err) {
+      console.log(err);
+    }
+  });
+  
   //-----------------------------------------------|
   //                                               |
   // STARTING GAME API CALLS                       |
