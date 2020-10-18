@@ -1,6 +1,15 @@
 const db = require("../models");
 const passport = require("../config/passport");
-const { Op } = require("sequelize");
+const axios = require("axios")
+
+const options = {
+  method: 'GET',
+  url: 'https://rapidapi.p.rapidapi.com/games',
+  headers: {
+    'x-rapidapi-host': 'rawg-video-games-database.p.rapidapi.com',
+    'x-rapidapi-key': '09195d092amshff92067eafd4eeap1cb6a0jsn32c3b856499c'
+  }
+};
 
 module.exports = function (app) {
   app.get(
@@ -20,10 +29,12 @@ module.exports = function (app) {
     }
   );
 
+  // Just the thing the sign in/sign up needs to work and easily grab user data
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
   });
 
+  // Sign actually builds the user out
   app.post("/api/signup", function (req, res) {
     db.User.create({
       user_name: req.body.username,
@@ -37,6 +48,7 @@ module.exports = function (app) {
       });
   });
 
+  // Logouts user.
   app.get("/logout", function (req, res) {
     db.User.update(
       { current_status: false },
@@ -201,8 +213,8 @@ module.exports = function (app) {
     }
   });
 
-  // Accepting game invite and destroying of the table game invites
-  // Probably should set when it destroys of the table at a timer
+  // Accepting game invite and destroying of the row where it lies in the table of gameInvites
+  // Probably should set when it destroys of the row at a timer ie. "15 mins"
   app.post("/api/GameInvites", function (req, res) {
     console.log(req.user.id);
     console.log("Grouping up...");
@@ -225,6 +237,7 @@ module.exports = function (app) {
     }
   });
 
+  // Reject Game invite and removes the row of from the table of invites
   app.post("/api/GameInvites", function (req, res) {
     if (req.user) {
       db.User.findOne({
@@ -247,7 +260,7 @@ module.exports = function (app) {
   // GETTING USER ATTRIBUTE DATA                  |
   // ---------------------------------------------|
 
-  // This is purely an abstract version of how it should look and work
+  // This is purely an abstract visual version of how it should look and work
   // Ideally this should be done in an async version of the first immediate user data call and set there
   // Plus you really don't need it be pulled out this way
   // just "user => res.render("target-handlebar-file" ex. "home", {name-of-extraction: user} ex. {userdata: user} )
@@ -292,5 +305,13 @@ module.exports = function (app) {
     }
   });
 
-  
+//-----------------------------------------------|
+//                                               |
+// STARTING GAME API CALLS                       |
+//                                               |
+// ----------------------------------------------| 
+
+
+
+
 };
