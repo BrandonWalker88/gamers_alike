@@ -32,7 +32,6 @@ span {
   max-width: 110px;
   padding-top: 10px;
   padding-bottom: 10px;
-  
 }
 
 /* .fas {
@@ -70,16 +69,16 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.hero-image {
+/* .hero-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://miro.medium.com/max/4192/1*yj9_ugyJn6XQ5Da9IqCXyg.jpeg");
-  height: 50%;
+    url("../images/csgo.png");
+  height: 70%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  opacity: 0.65;
-}
+  font-family: "Audiowide", cursive;
+} */
 
 .hero-text {
   text-align: center;
@@ -190,7 +189,6 @@ html {
   padding-bottom: 25px;
   padding-right: 10px;
   color: lightskyblue;
-  
 }
 
 #emoji-font {
@@ -283,7 +281,14 @@ html {
   color: white;
 }
 
-
 #thisone6 {
   color: white;
 }
+
+.is-rounded {
+  border: 3px solid #49f308;
+}
+
+/* #co-go {
+ height: 70%;
+} */
