@@ -1,7 +1,6 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const axios = require("axios");
-const CORS = require("cors");
 
 const options = {
   method: "GET",
