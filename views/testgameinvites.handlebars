@@ -30,11 +30,11 @@
             acceptedId: $(this).data("yes"),
         };
 
-        $.ajax("/api/IncomingFriends", {
+        $.ajax("/api/GameInvites", {
             type: "POST",
-            data: acceptedFriend,
+            data: acceptedGame,
         }).then(function() {
-            console.log("sent friend request");
+            console.log("game invite accepted");
             {{!-- location.reload(); --}}
         });
     });
@@ -47,8 +47,8 @@
             rejectedId: $(this).data("no"),
         };
 
-        $.ajax("/api/IncomingFriends", {
-            type: "DELETE",
+        $.ajax("/api/GameInvites", {
+            type: "POST",
             data: rejectedGame,
         }).then(function() {
             console.log("sent game invite");

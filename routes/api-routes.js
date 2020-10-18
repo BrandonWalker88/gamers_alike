@@ -51,6 +51,17 @@ module.exports = function (app) {
     });
   });
 
+  // Testing Routes. Should give basic routing structure
+
+  // Just displaying users on test page
+  app.get("/allUsers", function (req, res) {
+    console.log("hello");
+    db.User.findAll({}).then((user) => {
+      res.render("test", { user: user });
+    });
+  });
+
+  // Send Friend Invites
   app.post("/api/sendFriendInvite/", function (req, res) {
     console.log(req.body.requesteeId);
     if (req.body.requesteeId != req.user.id) {
@@ -68,17 +79,9 @@ module.exports = function (app) {
     } else {
       res.status(400).send("Cannot friend yourself");
     }
-
-    // if (req.body.requesteeId != testUser.id) {
-    //   console.log("Send friend request");
-    //   testUser
-    //     .addRequestees(req.body.requesteeId)
-    //     .then((result) => res.status(201).send(result));
-    // } else {
-    //   res.status(400).send("Cannot friend yourself");
-    // }
   });
 
+  // Send Game invite
   app.post("/api/sendGameInvite/", function (req, res) {
     console.log(req.body.requesteeId);
     if (req.body.requesteeId != req.user.id) {
@@ -99,6 +102,7 @@ module.exports = function (app) {
     }
   });
 
+  // Getting incoming friend requests
   app.get("/IncomingFriends", function (req, res) {
     console.log("incoming friends");
     if (req.user) {
@@ -117,6 +121,7 @@ module.exports = function (app) {
     }
   });
 
+  // Adding to friends to friend table or simply put, Saying yes to a friend request
   app.post("/api/IncomingFriends", function (req, res) {
     console.log(req.user.id);
     console.log("adding friend...");
@@ -139,7 +144,8 @@ module.exports = function (app) {
     }
   });
 
-  app.delete("/api/IncomingFriends", function (req, res) {
+  // Deleting a request from the table of friend requests or simply put rejecting a friend request
+  app.post("/api/IncomingFriends", function (req, res) {
     if (req.user) {
       db.User.findOne({
         where: {
@@ -153,9 +159,12 @@ module.exports = function (app) {
             res.redirect("/IncomingFriends");
           });
       });
+    } else {
+      res.status(401).redirect("/login");
     }
   });
 
+  // Displaying user friends
   app.get("/Friends", function (req, res) {
     if (req.user) {
       db.User.findOne({
@@ -167,9 +176,17 @@ module.exports = function (app) {
           res.render("testfriendslist", { user: friends });
         });
       });
+    } else {
+      res.status(401).redirect("/login");
     }
   });
 
+  //----------------------------------------------------
+  //                                                   |
+  //   GAME INVITE SECTION                             |
+  //---------------------------------------------------|
+
+  // Grabbing incoming game invites and displaying it
   app.get("/GameInvites", function (req, res) {
     if (req.user) {
       db.User.findOne({
@@ -177,17 +194,103 @@ module.exports = function (app) {
           id: req.user.id,
         },
       }).then((user) => {
-        return user.getInviters().then((users) => {
+        return user.getInviter().then((users) => {
           res.render("testgameinvites", { user: users });
         });
       });
     }
   });
 
-  app.get("/allUsers", function (req, res) {
-    console.log("hello");
-    db.User.findAll({}).then((user) => {
-      res.render("test", { user: user });
-    });
+  // Accepting game invite and destroying of the table game invites
+  // Probably should set when it destroys of the table at a timer
+  app.post("/api/GameInvites", function (req, res) {
+    console.log(req.user.id);
+    console.log("Grouping up...");
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      }).then((user) => {
+        // We should grab the acceptedId user discord channel invite
+        // If they don't have one give them the user discord channel invite
+        // else say they can buddy up cause of no discord links
+        return user.removeInviter(req.body.acceptedId).then((result) => {
+          console.log(result);
+          res.redirect("/IncomingFriends");
+        });
+      });
+    } else {
+      res.status(401).redirect("/login");
+    }
   });
+
+  app.post("/api/GameInvites", function (req, res) {
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      }).then((user) => {
+        return user.removeInviter(req.body.rejectedId).then((results) => {
+          console.log(results);
+          res.redirect("/GameInvites");
+        });
+      });
+    } else {
+      res.status(401).redirect("/login");
+    }
+  });
+
+  // ----------------------------------------------
+  //                                              |
+  // GETTING USER ATTRIBUTE DATA                  |
+  // ---------------------------------------------|
+
+  // This is purely an abstract version of how it should look and work
+  // Ideally this should be done in an async version of the first immediate user data call and set there
+  // Plus you really don't need it be pulled out this way
+  // just "user => res.render("target-handlebar-file" ex. "home", {name-of-extraction: user} ex. {userdata: user} )
+  // If done this way remember to use {{#dataValues}}whatever data you are grabbing{{/dataValues}} to grab the real stuff
+  app.get("/home", function (req, res) {
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      }).then((user) => {
+        const attributes = [];
+        attributes.push(
+          { attr1: user.user_attr1 },
+          { attr2: user.user_attr2 },
+          { attr3: user.user_attr3 },
+          { attr4: user.user_attr4 },
+          { attr5: user.user_attr5 },
+          { attr6: user.user_attr6 }
+        );
+
+        res.render("home", attributes);
+      });
+    } else {
+      res.status(401).redirect("/login");
+    }
+  });
+
+  // Simple version that does require {{#dataValues}} grab the dat in handlebars
+  // But it does grab friend or potential user you want check out and give access to their data
+  app.get("/friend", function (req, res) {
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          id: req.body.friendId,
+        },
+      }).then((friend) => {
+        res.render("friend-page", { friendData: friend });
+      });
+    } else {
+      res.status(401).redirect("/login");
+    }
+  });
+
+  
 };

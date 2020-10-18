@@ -98,7 +98,6 @@ module.exports = function (sequelize, DataTypes) {
     onDelete: "CASCADE",
   });
 
-  User.belongsToMany(User, { as: "Group", through: "gameSessions" });
   User.belongsToMany(User, {
     as: "BeingInvited",
     through: "gameRequests",

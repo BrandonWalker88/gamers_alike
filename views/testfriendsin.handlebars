@@ -48,7 +48,7 @@
         };
 
         $.ajax("/api/IncomingFriends", {
-            type: "DELETE",
+            type: "POST",
             data: rejectedUser,
         }).then(function() {
             console.log("sent game invite");
