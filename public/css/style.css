@@ -150,49 +150,50 @@ html {
 } */
 
 #bullseye {
-  font-size: 30px;
-  padding-bottom: 25px;
+  font-size: 35px;
+  /* padding-bottom: 10px; */
   padding-right: 10px;
   color: red;
 }
 
 #smiley {
-  font-size: 30px;
-  padding-bottom: 25px;
+  font-size: 35px;
+  /* padding-bottom: 10px; */
   padding-right: 10px;
   color: #fee133;
 }
 
 #poop {
-  font-size: 30px;
-  padding-bottom: 25px;
+  font-size: 35px;
+  /* padding-bottom: 10px; */
   padding-right: 10px;
   color: brown;
 }
 
 #bottle {
-  font-size: 30px;
-  padding-bottom: 25px;
+  font-size: 35px;
+  /* padding-bottom: 10px; */
   padding-right: 10px;
   color: forestgreen;
 }
 
 #moon {
-  font-size: 30px;
-  padding-bottom: 25px;
+  font-size: 35px;
+  /* padding-bottom: 10px; */
   padding-right: 10px;
   color: ivory;
 }
 
 #headphone {
   font-size: 30px;
-  padding-bottom: 25px;
+  /* padding-bottom: 10px; */
   padding-right: 10px;
   color: lightskyblue;
 }
 
 #emoji-font {
   color: white;
+  font-size: 20px;
 }
 
 #smiley:hover {
@@ -225,6 +226,10 @@ html {
 
 #removebutton:hover {
   background-color: #3273dc;
+}
+
+#thisone1, #thisone2, #thisone3, #thisone4, #thisone5, #thisone6 {
+  font-size: 20px;
 }
 
 .fa-star {
@@ -285,10 +290,17 @@ html {
   color: white;
 }
 
-.is-rounded {
+#phoenix {
+  border-radius: 60%;
   border: 3px solid #49f308;
+  width: 65%;
+  height: auto;
 }
 
-/* #co-go {
- height: 70%;
-} */
+#friend-rate {
+  width: 75%;
+}
+
+#s1, #s2, #s3, #s4 {
+  color: yellow;
+}
