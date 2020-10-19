@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password":  "Ja50NO9!59#",
+=======
+    "password":  "Edge@062190",
+>>>>>>> b0eab98849d465c79325cdd85385d704aa46187d
     "database": "test2",
     "host": "127.0.0.1",
     "port": "3306",
@@ -9,7 +13,7 @@
   },
   "test": {
     "username": "root",
-    "password": "J@eger84",
+    "password": "",
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"

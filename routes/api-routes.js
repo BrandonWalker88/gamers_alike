@@ -24,8 +24,8 @@ module.exports = function (app) {
     "/auth/steam/return",
     passport.authenticate("steam", { failureRedirect: "/signin" }),
     function (req, res) {
-      // We have to get data from Steam API and use it to make a user model
-      res.redirect("/");
+      // Successful authentication, redirect home.
+      res.redirect("/home");
     }
   );
 
@@ -66,7 +66,7 @@ module.exports = function (app) {
   // Testing Routes. Should give basic routing structure
 
   // Just displaying users on test page
-  app.get("/allUsers", function (req, res) {
+  app.get("/home", function (req, res) {
     console.log("hello");
     db.User.findAll({}).then((user) => {
       res.render("test", { user: user });
@@ -266,7 +266,7 @@ module.exports = function (app) {
 
   app.get("/home", function(req,res) {
     if (req.user) {
-      db.User.findOne({
+      const user = await db.User.findOne({
         where: {
           id: req.user.id,
         }

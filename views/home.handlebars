@@ -3,7 +3,7 @@
     <div class="container">
       <div class="columns">
         <div class="column is-3" id="user-icon-img">
-          <i class="fa fa-user" id="user-icon"></i>
+          <img src="../images/steam-icon.jpg" alt="user-icon" id="steam-icon"></br>
         </div>
         <div>
           <p> 
@@ -52,7 +52,9 @@
           <p class="bd-notification is-danger">
           <article class="panel">
             <p class="panel-heading">
-              Friends
+              Friends <a
+                href="http://api.steampowered.com/ISteamUser/GetFriendList/v0001/?keyD94580D5312585B718FA616F6F1CB4F0=&steamid45627849837465781=&relationship=friend"><img
+                  src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_small.png"></a>
             </p>
             <div>
               <ul>
@@ -107,7 +109,7 @@
                 <span class="panel-icon">
                   <i class="fas" aria-hidden="true"></i>
                 </span>
-                <strong>Bob_Johnson82</strong>
+                <strong>{{friendData}}</strong>
               </a>
 
               <div class="navbar-dropdown">
@@ -269,7 +271,7 @@
                 <span class="panel-icon">
                   <i class="fas" aria-hidden="true"></i>
                 </span>
-                <strong>BIGGGUNZZZ</strong>
+                <strong>{{user}}</strong>
               </a>
 
               <div class="navbar-dropdown">
@@ -306,7 +308,7 @@
                 <span class="panel-icon">
                   <i class="fas" aria-hidden="true"></i>
                 </span>
-                <strong>Bob_Johnson82</strong>
+                <strong>{{friendData}}Bob_Johnson82</strong>
               </a>
 
               <div class="navbar-dropdown">
@@ -345,5 +347,7 @@
         $(".fa-star").css("color", "yellow");
       })
     });
+
+
   </script>
 </body>

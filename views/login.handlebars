@@ -1,20 +1,48 @@
-<div>
-    <section>
-        <h2>Login Form</h2>
-        <form class="login">
-            <div>
-                <label for="testUsername">Username</label>
-                <input type="username" name="username" placeholder="Username" id="username-input">
+<body>
+    <div class="bg-img">
+        <section class="section">
+            <div class="container logo">
+                <h1 class="center-text">Welcome, Gamer</h1>
+                <h3 class="center-text" id="period">.</h3>
+                <div class="columns">
+                    <div class="column"></div>
+                    <div class="column"></div>
+                    <div class="column">
+                        <div class="columns">
+                            <section>
+                                <div class="column"></div>
+                                <div class="column"></div>
+                                <div class="column"></div>
+                                <form class="signup" action="">
+                                    <div class="column">
+                                        <label for="testUsername" class="signup">Username</label>
+                                        <input type="username" name="username" placeholder="Username"
+                                            id="username-input">
+                                    </div>
+                                    <div class="column">
+                                        <label for="testUserPassword" class="ml-1 signup">Password</label>
+                                        <input type="password" name="password" placeholder="Password"
+                                            id="password-input">
+                                    </div>
+                                    <div class="columns">
+                                        <div class="column"></div>
+                                        <div class="column">
+                                            <button type="submit">Log In</button>
+                                        </div>
+                                        <div class="column"></div>
+                                    </div>
+                                </form>
+                                <br>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="column"></div>
+                    <div class="column"></div>
+                </div>
             </div>
-            <div>
-                <label for="testUserPassword">Password</label>
-                <input type="password" name="password" placeholder="Password" id="password-input">
-            </div>
-            <button type="submit">Login</button>
-        </form>
-        <p>Or sign up <a href="/">here</a></p>
-    </section>
-</div>
+        </section>
+    </div>
+</body>
 
 <script>
     const signUpForm = $("form.login");
@@ -43,9 +71,9 @@
             password: password
         })
             .then(function () {
-                window.location.replace("/allUsers");
+                window.location.replace("/home");
             })
-            .catch(function(err) {
+            .catch(function (err) {
                 console.log(err);
             })
     }
