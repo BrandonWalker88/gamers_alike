@@ -7,7 +7,7 @@
           <img src="../images/steam-icon.jpg" alt="user-icon" id="steam-icon"></br>
         </div>
         <div>
-          <p> 
+          <p>
             {{user.dataValues.user_name}}
             Your user name should be here</p>
         </div>
@@ -75,7 +75,7 @@
             </div>
 
             {{#each friends}}
-                {{#dataValues}}
+            {{#dataValues}}
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="panel-block has-text-danger">
                 <span class="panel-icon">
@@ -89,7 +89,7 @@
               </div>
             </div>
             {{/dataValues}}
-                {{/each}}
+            {{/each}}
 
 
             <div class="navbar-item has-dropdown is-hoverable">
@@ -199,7 +199,7 @@
               </div>
             </div>
           </div>
-                    <div class="columns is-mobile">
+          <div class="columns is-mobile">
             <div class="column is-one-third">
               <div class="card opaque is-clickable" id="amongus">
                 <header class="card-header">
@@ -264,7 +264,7 @@
               </div>
             </div>
           </div>
-                    <div class="columns is-mobile">
+          <div class="columns is-mobile">
             <div class="column is-one-third">
               <div class="card opaque is-clickable" id="csgo">
                 <header class="card-header">
@@ -396,7 +396,32 @@
         </div>
   </section>
   <script type="text/javascript">
+    $(document).ready(function () {
+      $("#s1").click(function () {
+        $(".fa-star").css("color", "black")
+        $("#s1").css("color", "yellow");
+      })
+      $("#s2").click(function () {
+        $(".fa-star").css("color", "black")
+        $("#s1, #s2").css("color", "yellow");
+      })
+      $("#s3").click(function () {
+        $(".fa-star").css("color", "black")
+        $("#s1, #s2, #s3").css("color", "yellow");
+      })
+      $("#s4").click(function () {
+        $(".fa-star").css("color", "black")
+        $("#s1, #s2, #s3, #s4").css("color", "yellow");
+      })
+      $("#s5").click(function () {
+        $(".fa-star").css("color", "black")
+        $(".fa-star").css("color", "yellow");
+      })
+      $("#csgo").on("click" function () {
+        res.render("game-page");
+      });
 
+      Message #general
 
 
   </script>
