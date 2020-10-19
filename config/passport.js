@@ -7,10 +7,10 @@ var db = require("../models");
 passport.use(
   new SteamStrategy(
     {
-      // returnURL: "https://gamers-alike.herokuapp.com/signin/auth/steam/return",
-      // realm: "https://gamers-alike.herokuapp.com/signin",
-      returnURL: "https://localhost:8080/auth/steam/return",
-      realm: "https://localhost:8080/",
+      returnURL: "https://gamers-alike.herokuapp.com/signin/auth/steam/return",
+      realm: "https://gamers-alike.herokuapp.com/signin",
+      // returnURL: "https://localhost:3000/auth/steam/return",
+      // realm: "https://localhost:3000/",
       apiKey: "D94580D5312585B718FA616F6F1CB4F0", //Jason's Dev API Key
     },
     function (identifier, profile, done) {

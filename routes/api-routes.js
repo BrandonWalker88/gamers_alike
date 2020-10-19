@@ -1,14 +1,14 @@
 const db = require("../models");
 const passport = require("../config/passport");
-const axios = require("axios")
+const axios = require("axios");
 
 const options = {
-  method: 'GET',
-  url: 'https://rapidapi.p.rapidapi.com/games',
+  method: "GET",
+  url: "https://rapidapi.p.rapidapi.com/games",
   headers: {
-    'x-rapidapi-host': 'rawg-video-games-database.p.rapidapi.com',
-    'x-rapidapi-key': '09195d092amshff92067eafd4eeap1cb6a0jsn32c3b856499c'
-  }
+    "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
+    "x-rapidapi-key": "09195d092amshff92067eafd4eeap1cb6a0jsn32c3b856499c",
+  },
 };
 
 module.exports = function (app) {
@@ -66,12 +66,13 @@ module.exports = function (app) {
   // Testing Routes. Should give basic routing structure
 
   // Just displaying users on test page
-  // app.get("/home", function (req, res) {
-  //   console.log("hello");
-  //   db.User.findAll({}).then((user) => {
-  //     res.render("test", { user: user });
-  //   });
-  // });
+
+  app.get("/home", function (req, res) {
+    console.log("hello");
+    db.User.findAll({}).then((user) => {
+      res.render("home", { user: user });
+    });
+  });
 
   // Send Friend Invites
   app.post("/api/sendFriendInvite/", function (req, res) {
@@ -186,7 +187,7 @@ module.exports = function (app) {
       }).then((user) => {
         return user.getFriends().then((friends) => {
           console.log("-----------------------");
-          console.log(friends)
+          console.log(friends);
           console.log("-----------------------");
           res.render("testfriendlist", { user: friends });
         });
@@ -263,17 +264,16 @@ module.exports = function (app) {
   // GETTING USER ATTRIBUTE DATA                  |
   // ---------------------------------------------|
 
-
-  app.get("/home", function(req,res) {
+  app.get("/home", function (req, res) {
     if (req.user) {
       db.User.findOne({
         where: {
           id: req.user.id,
-        }
+        },
       }).then((user) => {
-        return user.getFriends().then(friends => {
-          return user.getRequesters().then(friendReq => {
-            return user.getInviter().then(gameReq => {
+        return user.getFriends().then((friends) => {
+          return user.getRequesters().then((friendReq) => {
+            return user.getInviter().then((gameReq) => {
               console.log("-----------------------------");
               console.log(user);
               console.log("-----------------------------");
@@ -287,16 +287,16 @@ module.exports = function (app) {
                 user: user,
                 friends: friends,
                 friendReq: friendReq,
-                gameReq: gameReq
-              })
-            })
-          })
-        })
-      })
+                gameReq: gameReq,
+              });
+            });
+          });
+        });
+      });
     } else {
       res.status(401).redirect("/login");
     }
-  })
+  });
 
   // This is purely an abstract visual version of how it should look and work
   // Ideally this should be done in an async version of the first immediate user data call and set there
@@ -343,13 +343,9 @@ module.exports = function (app) {
   //   }
   // });
 
-//-----------------------------------------------|
-//                                               |
-// STARTING GAME API CALLS                       |
-//                                               |
-// ----------------------------------------------| 
-
-
-
-
+  //-----------------------------------------------|
+  //                                               |
+  // STARTING GAME API CALLS                       |
+  //                                               |
+  // ----------------------------------------------|
 };
