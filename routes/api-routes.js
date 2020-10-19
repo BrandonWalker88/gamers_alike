@@ -66,12 +66,12 @@ module.exports = function (app) {
   // Testing Routes. Should give basic routing structure
 
   // Just displaying users on test page
-  app.get("/home", function (req, res) {
-    console.log("hello");
-    db.User.findAll({}).then((user) => {
-      res.render("test", { user: user });
-    });
-  });
+  // app.get("/home", function (req, res) {
+  //   console.log("hello");
+  //   db.User.findAll({}).then((user) => {
+  //     res.render("test", { user: user });
+  //   });
+  // });
 
   // Send Friend Invites
   app.post("/api/sendFriendInvite/", function (req, res) {
