@@ -61,25 +61,31 @@
             </p></br>
             <i onclick="addone1()" class="fa fa-grin-squint-tears is-clickable" id="smiley"></i><span><strong
                 id="emoji-font">Lol!</strong></span>
-            <span><strong id="thisone1">33</strong></span><hr/>
+            <span><strong id="thisone1">33</strong></span>
+            <hr />
             {{!-- <div class="panel-block"></div> --}}
             <i onclick="addone2()" class="fa fa-bullseye is-clickable" id="bullseye"></i><span><strong
                 id="emoji-font">Pro
                 Gamer</strong></span>
-            <span><strong id="thisone2">64</strong></span><hr/>
+            <span><strong id="thisone2">64</strong></span>
+            <hr />
             {{!-- <div class="panel-block"></div> --}}
             <i onclick="addone3()" class="fa fa-poop is-clickable" id="poop"></i><span><strong
                 id="emoji-font">Cheater!</strong></span>
-            <span><strong id="thisone3">24</strong></span><hr />
+            <span><strong id="thisone3">24</strong></span>
+            <hr />
             <i onclick="addone4()" class="fa fa-wine-bottle is-clickable" id="bottle"></i><span><strong
                 id="emoji-font">G.U.I.</strong></span>
-            <span><strong id="thisone4">15</strong></span> <hr />
+            <span><strong id="thisone4">15</strong></span>
+            <hr />
             <i onclick="addone5()" class="fa fa-moon is-clickable" id="moon"></i><span><strong
                 id="emoji-font">Nightowl</strong></span>
-            <span><strong id="thisone5">46</strong></span><hr />
+            <span><strong id="thisone5">46</strong></span>
+            <hr />
             <i onclick="addone6()" class="fa fa-headphones is-clickable" id="headphone"></i><span><strong
                 id="emoji-font">Talker</strong></span>
-            <span><strong id="thisone6">37</strong></span><hr/>
+            <span><strong id="thisone6">37</strong></span>
+            <hr />
             <!-- <div class="buttons"> -->
             <button class="button is-link" id="invitebutton"><strong>Invite to Play!</strong></button><br />
             <button class="button is-danger" id="removebutton"><strong>Remove From List!</strong></button>
@@ -221,25 +227,25 @@
           <div class="columns is-mobile">
             <div class="column is-one-third">
               <a>
-              <div class="card opaque is-clickable" id="csgo">
-                <header class="card-header">
-                  <p class="card-header-title has-text-white">
+                <div class="card opaque is-clickable" id="csgo">
+                  <header class="card-header">
+                    <p class="card-header-title has-text-white">
 
-                  </p>
-                  <a href="#" class="card-header-icon" aria-label="more options">
-                    <span class="icon">
+                    </p>
+                    <a href="#" class="card-header-icon" aria-label="more options">
+                      <span class="icon">
 
-                    </span>
-                  </a>
-                </header>
-                <div class="card-content">
-                  <div class="content">
+                      </span>
+                    </a>
+                  </header>
+                  <div class="card-content">
+                    <div class="content">
 
 
+                    </div>
                   </div>
-                </div>
 
-              </div>
+                </div>
               </a>
             </div>
             <div class="column is-one-third">
@@ -377,7 +383,7 @@
         $.post("/api/UpdateUserRating", {
           raterID: req.user.id,
           rating: 1
-        }).then(function(data) {
+        }).then(function (data) {
           console.log("rated 1 star");
         })
       })
@@ -387,7 +393,7 @@
         $.post("/api/UpdateUserRating", {
           raterID: req.user.id,
           rating: 2
-        }).then(function(data) {
+        }).then(function (data) {
           console.log("rated 2 star");
         })
       })
@@ -397,7 +403,7 @@
         $.post("/api/UpdateUserRating", {
           raterID: req.user.id,
           rating: 3
-        }).then(function(data) {
+        }).then(function (data) {
           console.log("rated 3 star");
         })
       })
@@ -407,7 +413,7 @@
         $.post("/api/UpdateUserRating", {
           raterID: req.user.id,
           rating: 4
-        }).then(function(data) {
+        }).then(function (data) {
           console.log("rated 4 star");
         })
       })
@@ -417,66 +423,67 @@
         $.post("/api/UpdateUserRating", {
           raterID: req.user.id,
           rating: 5
-        }).then(function(data) {
+        }).then(function (data) {
           console.log("rated 5 star");
         })
-      $("#ss1").click(function () {
-        $(".sstar").css("color", "black")
-        $("#ss1").css("color", "yellow");
-      })
-      $("#ss2").click(function () {
-        $(".sstar").css("color", "black")
-        $("#ss1, #ss2").css("color", "yellow");
-      })
-      $("#ss3").click(function () {
-        $(".sstar").css("color", "black")
-        $("#ss1, #ss2, #ss3").css("color", "yellow");
-      })
-      $("#ss4").click(function () {
-        $(".sstar").css("color", "black")
-        $("#ss1, #ss2, #ss3, #ss4").css("color", "yellow");
-      })
-      $("#ss5").click(function () {
-        $(".sstar").css("color", "black")
-        $(".sstar").css("color", "yellow");
-      })
+        $("#ss1").click(function () {
+          $(".sstar").css("color", "black")
+          $("#ss1").css("color", "yellow");
+        })
+        $("#ss2").click(function () {
+          $(".sstar").css("color", "black")
+          $("#ss1, #ss2").css("color", "yellow");
+        })
+        $("#ss3").click(function () {
+          $(".sstar").css("color", "black")
+          $("#ss1, #ss2, #ss3").css("color", "yellow");
+        })
+        $("#ss4").click(function () {
+          $(".sstar").css("color", "black")
+          $("#ss1, #ss2, #ss3, #ss4").css("color", "yellow");
+        })
+        $("#ss5").click(function () {
+          $(".sstar").css("color", "black")
+          $(".sstar").css("color", "yellow");
+        })
+      });
+
+
+      function addone1() {
+        var foo = parseInt(document.getElementById('thisone1').innerHTML);
+        foo = foo + 1;
+        document.getElementById('thisone1').innerHTML = foo;
+      }
+
+      function addone2() {
+        var foo = parseInt(document.getElementById('thisone2').innerHTML);
+        foo = foo + 1;
+        document.getElementById('thisone2').innerHTML = foo;
+      }
+
+      function addone3() {
+        var foo = parseInt(document.getElementById('thisone3').innerHTML);
+        foo = foo + 1;
+        document.getElementById('thisone3').innerHTML = foo;
+      }
+
+      function addone4() {
+        var foo = parseInt(document.getElementById('thisone4').innerHTML);
+        foo = foo + 1;
+        document.getElementById('thisone4').innerHTML = foo;
+      }
+
+      function addone5() {
+        var foo = parseInt(document.getElementById('thisone5').innerHTML);
+        foo = foo + 1;
+        document.getElementById('thisone5').innerHTML = foo;
+      }
+
+      function addone6() {
+        var foo = parseInt(document.getElementById('thisone6').innerHTML);
+        foo = foo + 1;
+        document.getElementById('thisone6').innerHTML = foo;
+      }
     });
-
-
-    function addone1() {
-      var foo = parseInt(document.getElementById('thisone1').innerHTML);
-      foo = foo + 1;
-      document.getElementById('thisone1').innerHTML = foo;
-    }
-
-    function addone2() {
-      var foo = parseInt(document.getElementById('thisone2').innerHTML);
-      foo = foo + 1;
-      document.getElementById('thisone2').innerHTML = foo;
-    }
-
-    function addone3() {
-      var foo = parseInt(document.getElementById('thisone3').innerHTML);
-      foo = foo + 1;
-      document.getElementById('thisone3').innerHTML = foo;
-    }
-
-    function addone4() {
-      var foo = parseInt(document.getElementById('thisone4').innerHTML);
-      foo = foo + 1;
-      document.getElementById('thisone4').innerHTML = foo;
-    }
-
-    function addone5() {
-      var foo = parseInt(document.getElementById('thisone5').innerHTML);
-      foo = foo + 1;
-      document.getElementById('thisone5').innerHTML = foo;
-    }
-
-    function addone6() {
-      var foo = parseInt(document.getElementById('thisone6').innerHTML);
-      foo = foo + 1;
-      document.getElementById('thisone6').innerHTML = foo;
-    }
   </script>
 </body>
