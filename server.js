@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const passport = require("passport");
-// const SteamStrategy = require("passport-steam").Strategy;
+const SteamStrategy = require("passport-steam").Strategy;
 const session = require("express-session");
 const exphbs = require("express-handlebars");
 

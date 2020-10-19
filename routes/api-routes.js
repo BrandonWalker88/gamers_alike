@@ -266,7 +266,7 @@ module.exports = function (app) {
 
   app.get("/home", function(req,res) {
     if (req.user) {
-      const user = await db.User.findOne({
+      db.User.findOne({
         where: {
           id: req.user.id,
         }
