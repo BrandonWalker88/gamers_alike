@@ -22,7 +22,7 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     // If the user already has an account send them to the home page
     if (req.user) {
-      res.redirect("/allUsers");
+      res.redirect("/home");
     } else {
       res.render("signup");
     }
@@ -31,7 +31,7 @@ module.exports = function (app) {
   app.get("/login", function (req, res) {
     // If the user already has an account send them to the home page
     if (req.user) {
-      res.redirect("/allUsers");
+      res.redirect("/home");
     } else {
       res.render("login");
     }
