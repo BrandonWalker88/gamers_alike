@@ -3,8 +3,23 @@
     <div class="container">
       <div class="columns">
         <div class="column is-3" id="user-icon-img">
-          <i class="fa fa-user" id="user-icon"></i>
+          <img src="../images/phoenix.png" alt="phoenix" id="phoenix"></br>
+          <div class="card opaque has-text-centered" id="friend-rate">
+            <span><strong>Gamer Rating:</strong></span></br>
+            <i class="fas fa-star is-clickable is-focused sstar" id="ss1"></i>
+            <i class="fas fa-star is-clickable is-focused sstar" id="ss2"></i>
+            <i class="fas fa-star is-clickable is-focused sstar" id="ss3"></i>
+            <i class="fas fa-star is-clickable is-focused sstar" id="ss4"></i>
+            <i class="fas fa-star is-clickable is-focused sstar" id="ss5"></i>
+          </div>
         </div>
+        {{!-- <div class="card" id="friend-rate">
+          <i class="fas fa-star is-clickable is-focused" id="s1"></i>
+          <i class="fas fa-star is-clickable is-focused" id="s2"></i>
+          <i class="fas fa-star is-clickable is-focused" id="s3"></i>
+          <i class="fas fa-star is-clickable is-focused" id="s4"></i>
+          <i class="fas fa-star is-clickable is-focused" id="s5"></i>
+        </div> --}}
         <div class="column is-6">
           <div class="columns">
             <div class="column">
@@ -24,13 +39,13 @@
           <div class="card has-text-centered" id="user-card">
             <div class="user-rep">
               <i class="fas fa-smile emoji" id="smile-icon"></i>
-              <span><strong>User Rep Score</strong></span>
+              <span><strong>User Rep Score:</strong></span>
             </div>
-            <i class="fas fa-star is-clickable is-focused" id="s1"></i>
-            <i class="fas fa-star is-clickable is-focused" id="s2"></i>
-            <i class="fas fa-star is-clickable is-focused" id="s3"></i>
-            <i class="fas fa-star is-clickable is-focused" id="s4"></i>
-            <i class="fas fa-star is-clickable is-focused" id="s5"></i>
+            <i class="fas fa-star is-focused" id="s1"></i>
+            <i class="fas fa-star is-focused" id="s2"></i>
+            <i class="fas fa-star is-focused" id="s3"></i>
+            <i class="fas fa-star is-focused" id="s4"></i>
+            <i class="fas fa-star is-focused" id="s5"></i>
           </div>
         </div>
       </div>
@@ -40,27 +55,36 @@
     <div class="container">
       <div class="columns">
         <div class="column is-3">
-          <i onclick="addone1()" class="fa fa-grin-squint-tears is-clickable" id="smiley"></i><span><strong
-              id="emoji-font">Lol!</strong></span>
-          <span><strong id="thisone1">33</strong></span><br />
-          <i onclick="addone2()" class="fa fa-bullseye is-clickable" id="bullseye"></i><span><strong id="emoji-font">Pro
-              Gamer</strong></span>
-          <span><strong id="thisone2">64</strong></span><br />
-          <i onclick="addone3()" class="fa fa-poop is-clickable" id="poop"></i><span><strong
-              id="emoji-font">Cheater!</strong></span>
-          <span><strong id="thisone3">24</strong></span><br />
-          <i onclick="addone4()" class="fa fa-wine-bottle is-clickable" id="bottle"></i><span><strong
-              id="emoji-font">G.U.I.</strong></span>
-          <span><strong id="thisone4">15</strong></span> <br />
-          <i onclick="addone5()" class="fa fa-moon is-clickable" id="moon"></i><span><strong
-              id="emoji-font">Nightowl</strong></span>
-          <span><strong id="thisone5">46</strong></span><br />
-          <i onclick="addone6()" class="fa fa-headphones is-clickable" id="headphone"></i><span><strong
-              id="emoji-font">Talker</strong></span>
-          <span><strong id="thisone6">37</strong></span><br />
-          <!-- <div class="buttons"> -->
-          <button class="button is-link" id="invitebutton"><strong>Invite to Play!</strong></button><br />
-          <button class="button is-danger" id="removebutton"><strong>Remove From List!</strong></button>
+          <article class="panel is-primary">
+            <p class="panel-heading">
+              Gamer Attributes
+            </p></br>
+            <i onclick="addone1()" class="fa fa-grin-squint-tears is-clickable" id="smiley"></i><span><strong
+                id="emoji-font">Lol!</strong></span>
+            <span><strong id="thisone1">33</strong></span><hr/>
+            {{!-- <div class="panel-block"></div> --}}
+            <i onclick="addone2()" class="fa fa-bullseye is-clickable" id="bullseye"></i><span><strong
+                id="emoji-font">Pro
+                Gamer</strong></span>
+            <span><strong id="thisone2">64</strong></span><hr/>
+            {{!-- <div class="panel-block"></div> --}}
+            <i onclick="addone3()" class="fa fa-poop is-clickable" id="poop"></i><span><strong
+                id="emoji-font">Cheater!</strong></span>
+            <span><strong id="thisone3">24</strong></span><hr />
+            <i onclick="addone4()" class="fa fa-wine-bottle is-clickable" id="bottle"></i><span><strong
+                id="emoji-font">G.U.I.</strong></span>
+            <span><strong id="thisone4">15</strong></span> <hr />
+            <i onclick="addone5()" class="fa fa-moon is-clickable" id="moon"></i><span><strong
+                id="emoji-font">Nightowl</strong></span>
+            <span><strong id="thisone5">46</strong></span><hr />
+            <i onclick="addone6()" class="fa fa-headphones is-clickable" id="headphone"></i><span><strong
+                id="emoji-font">Talker</strong></span>
+            <span><strong id="thisone6">37</strong></span><hr/>
+            <!-- <div class="buttons"> -->
+            <button class="button is-link" id="invitebutton"><strong>Invite to Play!</strong></button><br />
+            <button class="button is-danger" id="removebutton"><strong>Remove From List!</strong></button>
+          </article>
+
           <!-- </div> -->
         </div>
         <div class="column is-6 opaque">
@@ -189,28 +213,30 @@
     </div>
   </section>
   <script type="text/javascript">
+
     $(document).ready(function () {
-      $("#s1").click(function () {
-        $(".fa-star").css("color", "black")
-        $("#s1").css("color", "yellow");
+      $("#ss1").click(function () {
+        $(".sstar").css("color", "black")
+        $("#ss1").css("color", "yellow");
       })
-      $("#s2").click(function () {
-        $(".fa-star").css("color", "black")
-        $("#s1, #s2").css("color", "yellow");
+      $("#ss2").click(function () {
+        $(".sstar").css("color", "black")
+        $("#ss1, #ss2").css("color", "yellow");
       })
-      $("#s3").click(function () {
-        $(".fa-star").css("color", "black")
-        $("#s1, #s2, #s3").css("color", "yellow");
+      $("#ss3").click(function () {
+        $(".sstar").css("color", "black")
+        $("#ss1, #ss2, #ss3").css("color", "yellow");
       })
-      $("#s4").click(function () {
-        $(".fa-star").css("color", "black")
-        $("#s1, #s2, #s3, #s4").css("color", "yellow");
+      $("#ss4").click(function () {
+        $(".sstar").css("color", "black")
+        $("#ss1, #ss2, #ss3, #ss4").css("color", "yellow");
       })
-      $("#s5").click(function () {
-        $(".fa-star").css("color", "black")
-        $(".fa-star").css("color", "yellow");
+      $("#ss5").click(function () {
+        $(".sstar").css("color", "black")
+        $(".sstar").css("color", "yellow");
       })
     });
+
 
     function addone1() {
       var foo = parseInt(document.getElementById('thisone1').innerHTML);
