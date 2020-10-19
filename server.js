@@ -26,10 +26,10 @@ require("./routes/api-routes.js")(app);
 passport.use(
   new SteamStrategy(
     {
-      returnURL: "http://localhost:3000/auth/steam/return",
-      realm: "http://localhost:3000/",
-      // returnURL: "https://gamers-alike.herokuapp.com/auth/steam/return",
-      // realm: "https://gamers-alike.herokuapp.com/",
+      // returnURL: "http://localhost:3000/auth/steam/return",
+      // realm: "http://localhost:3000/",
+      returnURL: "https://gamers-alike.herokuapp.com/auth/steam/return",
+      realm: "https://gamers-alike.herokuapp.com/",
       apiKey: "D94580D5312585B718FA616F6F1CB4F0",
     },
     function (identifier, profile, done) {
