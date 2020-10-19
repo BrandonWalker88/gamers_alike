@@ -23,31 +23,31 @@ app.set("view engine", "handlebars");
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
-// passport.use(
-//   new SteamStrategy(
-//     {
-//       // returnURL: "http://localhost:3000/auth/steam/return",
-//       // realm: "http://localhost:3000/",
-//       returnURL: "https://gamers-alike.herokuapp.com/auth/steam/return",
-//       realm: "https://gamers-alike.herokuapp.com/",
-//       apiKey: "D94580D5312585B718FA616F6F1CB4F0",
-//     },
-//     function (identifier, profile, done) {
-//       process.nextTick(function () {
-//         profile.identifier = identifier;
-//         return done(null, profile);
-//       });
-//     }
-//   )
-// );
+passport.use(
+  new SteamStrategy(
+    {
+      // returnURL: "http://localhost:3000/auth/steam/return",
+      // realm: "http://localhost:3000/",
+      returnURL: "https://gamers-alike.herokuapp.com/auth/steam/return",
+      realm: "https://gamers-alike.herokuapp.com/",
+      apiKey: "D94580D5312585B718FA616F6F1CB4F0",
+    },
+    function (identifier, profile, done) {
+      process.nextTick(function () {
+        profile.identifier = identifier;
+        return done(null, profile);
+      });
+    }
+  )
+);
 
-// passport.serializeUser(function (user, done) {
-//   done(null, user);
-// });
+passport.serializeUser(function (user, done) {
+  done(null, user);
+});
 
-// passport.deserializeUser(function (obj, done) {
-//   done(null, obj);
-// });
+passport.deserializeUser(function (obj, done) {
+  done(null, obj);
+});
 
 app.use(
   session({
@@ -59,19 +59,19 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.get("/", function (req, res) {
-//   if (req.user)
-//     res.send(
-//       "Stored in session when logged : <br><br> " +
-//         JSON.stringify(req.user) +
-//         "<br><br>" +
-//         '<a href="/logout">Logout</a>'
-//     );
-//   else
-//     res.send(
-//       'Not connected : <a href="/auth/steam"><img src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_small.png"></a>'
-//     );
-// });
+app.get("/", function (req, res) {
+  if (req.user)
+    res.send(
+      "Stored in session when logged : <br><br> " +
+        JSON.stringify(req.user) +
+        "<br><br>" +
+        '<a href="/logout">Logout</a>'
+    );
+  else
+    res.send(
+      'Not connected : <a href="/auth/steam"><img src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_small.png"></a>'
+    );
+});
 
 db.sequelize.sync().then(function () {
   app.listen(PORT, function () {
