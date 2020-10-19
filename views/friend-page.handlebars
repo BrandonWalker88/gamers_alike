@@ -32,7 +32,7 @@
             </div>
           </div>
           <div class="card has-text-centered opaque" id="friend-name">
-            <strong>Phoenix22's Top Games</strong>
+            <strong> {{friendData.username}}'s Top Games</strong>
           </div>
         </div>
         <div class="column is-3">
@@ -92,7 +92,7 @@
             <div class="column is-one-third">
               <div class="card">
                 <header class="card-header">
-                  <p class="card-header-title">Component</p>
+                  <p class="card-header-title">Component {{friendData.current_game}} </p>
                 </header>
                 <div class="card-content">
                   <div class="content">
@@ -105,7 +105,7 @@
             <div class="column is-one-third">
               <div class="card">
                 <header class="card-header">
-                  <p class="card-header-title">Component</p>
+                  <p class="card-header-title">Component {{friendData.user_game1}}</p>
                 </header>
                 <div class="card-content">
                   <div class="content">
@@ -118,7 +118,7 @@
             <div class="column is-one-third">
               <div class="card">
                 <header class="card-header">
-                  <p class="card-header-title">Component</p>
+                  <p class="card-header-title">Component {{friendData.user_game2}} </p>
                 </header>
                 <div class="card-content">
                   <div class="content">
@@ -215,6 +215,57 @@
   <script type="text/javascript">
 
     $(document).ready(function () {
+<<<<<<< HEAD
+      $("#s1").click(function () {
+        $(".fa-star").css("color", "black")
+        $("#s1").css("color", "yellow");
+        $.post("/api/UpdateUserRating", {
+          raterID: req.user.id,
+          rating: 1
+        }).then(function(data) {
+          console.log("rated 1 star");
+        })
+      })
+      $("#s2").click(function () {
+        $(".fa-star").css("color", "black")
+        $("#s1, #s2").css("color", "yellow");
+        $.post("/api/UpdateUserRating", {
+          raterID: req.user.id,
+          rating: 2
+        }).then(function(data) {
+          console.log("rated 2 star");
+        })
+      })
+      $("#s3").click(function () {
+        $(".fa-star").css("color", "black")
+        $("#s1, #s2, #s3").css("color", "yellow");
+        $.post("/api/UpdateUserRating", {
+          raterID: req.user.id,
+          rating: 3
+        }).then(function(data) {
+          console.log("rated 3 star");
+        })
+      })
+      $("#s4").click(function () {
+        $(".fa-star").css("color", "black")
+        $("#s1, #s2, #s3, #s4").css("color", "yellow");
+        $.post("/api/UpdateUserRating", {
+          raterID: req.user.id,
+          rating: 4
+        }).then(function(data) {
+          console.log("rated 4 star");
+        })
+      })
+      $("#s5").click(function () {
+        $(".fa-star").css("color", "black")
+        $(".fa-star").css("color", "yellow");
+        $.post("/api/UpdateUserRating", {
+          raterID: req.user.id,
+          rating: 5
+        }).then(function(data) {
+          console.log("rated 5 star");
+        })
+=======
       $("#ss1").click(function () {
         $(".sstar").css("color", "black")
         $("#ss1").css("color", "yellow");
@@ -234,6 +285,7 @@
       $("#ss5").click(function () {
         $(".sstar").css("color", "black")
         $(".sstar").css("color", "yellow");
+>>>>>>> b0eab98849d465c79325cdd85385d704aa46187d
       })
     });
 
