@@ -150,35 +150,35 @@ html {
 } */
 
 #bullseye {
-  font-size: 35px;
+  font-size: 30px;
   /* padding-bottom: 10px; */
   padding-right: 10px;
   color: red;
 }
 
 #smiley {
-  font-size: 35px;
+  font-size: 30px;
   /* padding-bottom: 10px; */
   padding-right: 10px;
   color: #fee133;
 }
 
 #poop {
-  font-size: 35px;
+  font-size: 30px;
   /* padding-bottom: 10px; */
   padding-right: 10px;
   color: brown;
 }
 
 #bottle {
-  font-size: 35px;
+  font-size: 30px;
   /* padding-bottom: 10px; */
   padding-right: 10px;
   color: forestgreen;
 }
 
 #moon {
-  font-size: 35px;
+  font-size: 30px;
   /* padding-bottom: 10px; */
   padding-right: 10px;
   color: ivory;
@@ -233,7 +233,7 @@ html {
 }
 
 .fa-star {
-  font-size: 30px;
+  font-size: 25px;
   padding-right: 5px;
   padding-top: 10px;
 }
@@ -298,7 +298,8 @@ html {
 }
 
 #friend-rate {
-  width: 75%;
+  width: 80%;
+  opacity: 0.7;
 }
 
 #s1, #s2, #s3, #s4 {
