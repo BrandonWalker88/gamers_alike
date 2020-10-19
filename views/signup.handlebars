@@ -1,40 +1,44 @@
 <body>
-  <div class="bg-img">
-    <section class="section">
-      <div class="container logo">
-        <h1 class="center-text">Welcome, Gamer</h1>
-        <h3 class="center-text" id="period">.</h3>
-        <div class="columns">
-          <div class="column"></div>
-          <div class="column"></div>
-          <div class="column">
-<div class="columns">
-    <section>
-        <div class="column"></div>
-          <div class="column"></div>
-          <div class="column"></div>
-        <form class="signup" action="">
-            <div class="column">
-                <label for="testUsername" class="signup">Username</label>
-                <input type="username" name="username" placeholder="Username" id="username-input">
+    <div class="bg-img">
+        <section class="section">
+            <div class="container logo">
+                <h1 class="center-text">Welcome, Gamer</h1>
+                <h3 class="center-text" id="period">.</h3>
+                <div class="columns">
+                    <div class="column"></div>
+                    <div class="column"></div>
+                    <div class="column">
+                        <div class="columns">
+                            <section>
+                                <div class="column"></div>
+                                <div class="column"></div>
+                                <div class="column"></div>
+                                <form class="signup" action="">
+                                    <div class="column">
+                                        <label for="testUsername" class="signup">Username</label>
+                                        <input type="username" name="username" placeholder="Username"
+                                            id="username-input">
+                                    </div>
+                                    <div class="column">
+                                        <label for="testUserPassword" class="ml-1 signup">Password</label>
+                                        <input type="password" name="password" placeholder="Password"
+                                            id="password-input">
+                                    </div>
+                                    <button type="submit">Sign Up</button>
+                                    <p class="signup">Or Log in <a href="/auth/steam"><img
+                                                src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_small.png"></a>
+                                    </p>
+                                </form>
+                                <br>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="column"></div>
+                    <div class="column"></div>
+                </div>
             </div>
-            <div class="column">
-                <label for="testUserPassword" class="ml-1 signup">Password</label>
-                <input type="password" name="password" placeholder="Password" id="password-input">
-            </div>
-            <button type="submit">Sign Up</button>
-            <p class="signup">Or Log in <a href="/login">here</a></p>
-        </form>
-        <br>
-    </section>
-</div>
-          </div>
-          <div class="column"></div>
-          <div class="column"></div>
-        </div>
-      </div>
-    </section>
-  </div>
+        </section>
+    </div>
 </body>
 <script>
     const signUpForm = $("form.signup");
@@ -63,7 +67,7 @@
             password: password
         })
             .then(function (data) {
-                window.location.replace("/allUsers");
+                window.location.replace("/home");
             })
             .catch(function (err) {
                 console.log(err);

@@ -30,7 +30,7 @@ module.exports = function (app) {
     }),
     function (req, res) {
       // Successful authentication, redirect home.
-      res.redirect("/");
+      res.redirect("/home");
     }
   );
   app.get("/login", function (req, res) {
@@ -63,7 +63,7 @@ module.exports = function (app) {
   // Testing Routes. Should give basic routing structure
 
   // Just displaying users on test page
-  app.get("/allUsers", function (req, res) {
+  app.get("/home", function (req, res) {
     console.log("hello");
     db.User.findAll({}).then((user) => {
       res.render("test", { user: user });
@@ -269,14 +269,14 @@ module.exports = function (app) {
         where: {
           id: req.user.id,
         },
-      })
-        const friends = await user.getFriends()
-         await res.render("testfriendslist", { user: friends });
+      });
+      const friends = await user.getFriends();
+      await res.render("testfriendslist", { user: friends });
     } else {
       res.status(401).redirect("/login");
     }
   });
-  
+
   // Simple version that does require {{#dataValues}} grab the dat in handlebars
   // But it does grab friend or potential user you want check out and give access to their data
   app.get("/friend", function (req, res) {
