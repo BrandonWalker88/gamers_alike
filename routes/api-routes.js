@@ -262,29 +262,32 @@ module.exports = function (app) {
   // Plus you really don't need it be pulled out this way
   // just "user => res.render("target-handlebar-file" ex. "home", {name-of-extraction: user} ex. {userdata: user} )
   // If done this way remember to use {{#dataValues}}whatever data you are grabbing{{/dataValues}} to grab the real stuff
-  app.get("/home", function (req, res) {
-    if (req.user) {
-      db.User.findOne({
+
+
+  app.get("/home", async function(req,res) {
+    try{
+      console.log("trying to phone home...")
+      const user = await db.User.findOne({
         where: {
           id: req.user.id,
         },
-      }).then((user) => {
-        const attributes = [];
-        attributes.push(
-          { attr1: user.user_attr1 },
-          { attr2: user.user_attr2 },
-          { attr3: user.user_attr3 },
-          { attr4: user.user_attr4 },
-          { attr5: user.user_attr5 },
-          { attr6: user.user_attr6 }
-        );
-
-        res.render("home", attributes);
       });
-    } else {
-      res.status(401).redirect("/login");
+  
+      const friends = await user.getFriends();
+  
+      const inFriendReq = await user.getRequesters();
+  
+      const inGameInvites = await user.getInviter();
+  
+      // axios call for game data;
+      
+      console.log(user);
+      console.log(friends);
+      await res.render("home", {user: user, friends: friends, friendReq: inFriendReq, gameInvites: inGameInvites})
+    } catch (err) {
+      console.log(err);
     }
-  });
+  })
 
   app.post("/api/UpdateUserRating", function (req, res) {
     if (req.user) {

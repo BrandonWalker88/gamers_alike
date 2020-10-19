@@ -5,6 +5,14 @@
         <div class="column is-3" id="user-icon-img">
           <i class="fa fa-user" id="user-icon"></i>
         </div>
+        <div>
+          <p> {{#each user}}
+            {{#dataValues}}
+            {{{user_name}}}
+            {{/dataValues}}
+            {{/each}}
+            Your user name should be here</p>
+        </div>
         <div class="column is-6">
           <div class="columns">
             <div class="column">
@@ -38,6 +46,7 @@
       </div>
     </div>
   </section>
+
   <section class="section">
     <div class="container">
 
@@ -48,6 +57,18 @@
             <p class="panel-heading">
               Friends
             </p>
+            <div>
+              <ul>
+                {{#each friends}}
+                {{#dataValues}}
+                <li>
+                  {{{id}}}.... {{{user_name}}} A friend should be here.
+                </li>
+                {{/dataValues}}
+                {{/each}}
+              </ul>
+            </div>
+
             <div class="panel-block">
               <p class="control has-icons-left">
                 <input class="input is-success" type="text" placeholder="Search">
@@ -297,7 +318,7 @@
           </article>
         </div>
   </section>
-    <script type="text/javascript">
+  <script type="text/javascript">
     $(document).ready(function () {
       $("#s1").click(function () {
         $(".fa-star").css("color", "black")

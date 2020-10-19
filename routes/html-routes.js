@@ -7,9 +7,9 @@ module.exports = function (app) {
     res.render("signin");
   });
 
-  app.get("/home", function (req, res) {
-    res.render("home");
-  });
+  // app.get("/home", function (req, res) {
+  //   res.render("home");
+  // });
 
   app.get("/friend-page", function (req, res) {
     
@@ -41,7 +41,7 @@ module.exports = function (app) {
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/home", isAuthenticated, function (req, res) {
-    res.render("signup");
-  });
+  // app.get("/home", isAuthenticated, function (req, res) {
+  //   res.render("signup");
+  // });
 };
