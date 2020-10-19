@@ -141,10 +141,6 @@ html {
   opacity: 0.65;
 }
 
-.pink {
-  text-decoration-color: pink;
-}
-
 /* .solid {
   background-color: rgb(150, 147, 147);
 } */
@@ -312,4 +308,51 @@ html {
 
 .signup {
   color: #49f308;
+}
+
+.audiowide {
+  font-family: "Audiowide", cursive;
+}
+
+#csgo {
+  background-image: url(../images/csgo2.png);
+}
+
+#brawlhalla {
+  background-image: url(../images/brawlhalla1.jpg);
+}
+
+#destiny {
+  background-image: url(../images/destiny2.jpg);
+}
+
+#cyberpunk {
+  background-image: url(../images/cyberpunk1.jpg);
+}
+
+#amongus {
+  background-image: url(../images/amongus1.jpg);
+}
+
+#phasmo {
+  background-image: url(../images/phasmo.jpg);
+}
+
+#yakuza {
+  background-image: url(../images/yakuza1.jpg);
+}
+
+#fallguys {
+  background-image: url(../images/fallguys1.jpg);
+}
+
+.red {
+  color: red;
+}
+
+.fa-star {
+  margin: 5px;
+}
+#s1 {
+  margin-left: 45px;
 }
