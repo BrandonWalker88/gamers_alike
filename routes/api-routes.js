@@ -66,6 +66,7 @@ module.exports = function (app) {
   // Testing Routes. Should give basic routing structure
 
   // Just displaying users on test page
+
   app.get("/home", function (req, res) {
     console.log("hello");
     db.User.findAll({}).then((user) => {
