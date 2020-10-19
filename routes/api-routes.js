@@ -1,45 +1,33 @@
 const db = require("../models");
 const passport = require("../config/passport");
-const axios = require("axios");
+const axios = require("axios")
 
 const options = {
-  method: "GET",
-  url: "https://rapidapi.p.rapidapi.com/games",
+  method: 'GET',
+  url: 'https://rapidapi.p.rapidapi.com/games',
   headers: {
-    "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
-    "x-rapidapi-key": "09195d092amshff92067eafd4eeap1cb6a0jsn32c3b856499c",
-  },
+    'x-rapidapi-host': 'rawg-video-games-database.p.rapidapi.com',
+    'x-rapidapi-key': '09195d092amshff92067eafd4eeap1cb6a0jsn32c3b856499c'
+  }
 };
 
 module.exports = function (app) {
   app.get(
     "/auth/steam",
-    passport.authenticate("steam", {
-      failureRedirect: "/login",
-    }),
+    passport.authenticate("steam", { failureRedirect: "/signin" }),
     function (req, res) {
-      // The request will be redirected to Steam for authentication, so
-      // this function will not be called.
+      res.redirect("/");
     }
   );
 
   app.get(
     "/auth/steam/return",
-    passport.authenticate("steam", {
-      failureRedirect: "/login",
-    }),
+    passport.authenticate("steam", { failureRedirect: "/signin" }),
     function (req, res) {
       // Successful authentication, redirect home.
       res.redirect("/home");
     }
   );
-  app.get("/login", function (req, res) {
-    res.send("Failed to Login");
-  });
-  app.get("/logout", function (req, res) {
-    req.logout();
-    res.redirect("/");
-  });
 
   // Just the thing the sign in/sign up needs to work and easily grab user data
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
@@ -58,6 +46,21 @@ module.exports = function (app) {
       .catch(function (err) {
         res.status(401).json(err);
       });
+  });
+
+  // Logouts user.
+  app.get("/logout", function (req, res) {
+    db.User.update(
+      { current_status: false },
+      {
+        where: {
+          id: req.user.id,
+        },
+      }
+    ).then(function () {
+      req.logout();
+      res.redirect("/login");
+    });
   });
 
   // Testing Routes. Should give basic routing structure
@@ -182,7 +185,10 @@ module.exports = function (app) {
         },
       }).then((user) => {
         return user.getFriends().then((friends) => {
-          res.render("testfriendslist", { user: friends });
+          console.log("-----------------------");
+          console.log(friends)
+          console.log("-----------------------");
+          res.render("testfriendlist", { user: friends });
         });
       });
     } else {
@@ -257,45 +263,93 @@ module.exports = function (app) {
   // GETTING USER ATTRIBUTE DATA                  |
   // ---------------------------------------------|
 
+
+  app.get("/home", function(req,res) {
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          id: req.user.id,
+        }
+      }).then((user) => {
+        return user.getFriends().then(friends => {
+          return user.getRequesters().then(friendReq => {
+            return user.getInviter().then(gameReq => {
+              console.log("-----------------------------");
+              console.log(user);
+              console.log("-----------------------------");
+              console.log(friends);
+              console.log("-----------------------------");
+              console.log(friendReq);
+              console.log("-----------------------------");
+              console.log(gameReq);
+              console.log("-----------------------------");
+              res.render("home", {
+                user: user,
+                friends: friends,
+                friendReq: friendReq,
+                gameReq: gameReq
+              })
+            })
+          })
+        })
+      })
+    } else {
+      res.status(401).redirect("/login");
+    }
+  })
+
   // This is purely an abstract visual version of how it should look and work
   // Ideally this should be done in an async version of the first immediate user data call and set there
   // Plus you really don't need it be pulled out this way
   // just "user => res.render("target-handlebar-file" ex. "home", {name-of-extraction: user} ex. {userdata: user} )
   // If done this way remember to use {{#dataValues}}whatever data you are grabbing{{/dataValues}} to grab the real stuff
-  app.get("/home", async function (req, res) {
-    console.log("Booyah, it works!");
-    if (req.user) {
-      const user = await db.User.findOne({
-        where: {
-          id: req.user.id,
-        },
-      });
-      const friends = await user.getFriends();
-      await res.render("testfriendslist", { user: friends });
-    } else {
-      res.status(401).redirect("/login");
-    }
-  });
+  // app.get("/home", function (req, res) {
+  //   if (req.user) {
+  //     db.User.findOne({
+  //       where: {
+  //         id: req.user.id,
+  //       },
+  //     }).then((user) => {
+  //       const attributes = [];
+  //       attributes.push(
+  //         { attr1: user.user_attr1 },
+  //         { attr2: user.user_attr2 },
+  //         { attr3: user.user_attr3 },
+  //         { attr4: user.user_attr4 },
+  //         { attr5: user.user_attr5 },
+  //         { attr6: user.user_attr6 }
+  //       );
+
+  //       res.render("home", attributes);
+  //     });
+  //   } else {
+  //     res.status(401).redirect("/login");
+  //   }
+  // });
 
   // Simple version that does require {{#dataValues}} grab the dat in handlebars
   // But it does grab friend or potential user you want check out and give access to their data
-  app.get("/friend", function (req, res) {
-    if (req.user) {
-      db.User.findOne({
-        where: {
-          id: req.body.friendId,
-        },
-      }).then((friend) => {
-        res.render("friend-page", { friendData: friend });
-      });
-    } else {
-      res.status(401).redirect("/login");
-    }
-  });
+  // app.get("/friend", function (req, res) {
+  //   if (req.user) {
+  //     db.User.findOne({
+  //       where: {
+  //         id: req.body.friendId,
+  //       },
+  //     }).then((friend) => {
+  //       res.render("friend-page", { friendData: friend });
+  //     });
+  //   } else {
+  //     res.status(401).redirect("/login");
+  //   }
+  // });
 
-  //-----------------------------------------------|
-  //                                               |
-  // STARTING GAME API CALLS                       |
-  //                                               |
-  // ----------------------------------------------|
+//-----------------------------------------------|
+//                                               |
+// STARTING GAME API CALLS                       |
+//                                               |
+// ----------------------------------------------| 
+
+
+
+
 };

@@ -4,6 +4,12 @@
       <div class="columns">
         <div class="column is-3" id="user-icon-img">
 
+          <img src="../images/steam-icon.jpg" alt="user-icon" id="steam-icon"></br>
+        </div>
+        <div>
+          <p> 
+            {{user.dataValues.user_name}}
+            Your user name should be here</p>
         </div>
         <div class="column is-6">
           <div class="columns">
@@ -26,7 +32,7 @@
           <div class="card has-text-centehas-text-danger" id="user-card">
             <div class="user-rep">
               <i class="fas fa-smile emoji" id="smile-icon"></i>
-              <span><strong class="audiowide">Your Rep Score</strong></span>
+              <span><strong>{{user.dataValues.user_name}} Rep Score</strong></span>
             </div>
             <i class="fas fa-star is-clickable is-focused" id="s1"></i>
             <i class="fas fa-star is-clickable is-focused" id="s2"></i>
@@ -38,6 +44,7 @@
       </div>
     </div>
   </section>
+
   <section class="section">
     <div class="container">
 
@@ -48,25 +55,44 @@
             <p class="panel-heading">
               Friends
             </p>
+            <div>
+              <ul>
+                {{#each friends}}
+                {{#dataValues}}
+                <li>
+                  {{{id}}}.... {{{user_name}}} A friend should be here.
+                </li>
+                {{/dataValues}}
+                {{/each}}
+              </ul>
+            </div>
+
             <div class="panel-block">
               <p class="control has-icons-left">
                 <span class="icon is-left">
                 </span>
               </p>
             </div>
-            <div class="navbar-item is-hoverable">
+
+            {{#each friends}}
+                {{#dataValues}}
+            <div class="navbar-item has-dropdown is-hoverable">
               <a class="panel-block has-text-danger">
                 <span class="panel-icon">
                   <i class="fas" aria-hidden="true"></i>
                 </span>
-                <strong>Tommy864</strong>
+                <strong>{{{user_name}}}</strong>
               </a>
 
               <div class="navbar-dropdown">
 
               </div>
             </div>
-            <div class="navbar-item is-hoverable">
+            {{/dataValues}}
+                {{/each}}
+
+
+            <div class="navbar-item has-dropdown is-hoverable">
               <a class="panel-block has-text-danger">
                 <span class="panel-icon">
                   <i class="fas" aria-hidden="true"></i>
@@ -309,7 +335,7 @@
             <p class="panel-heading">
               Current Game
             </p>
-            <h2 class="has-text-white">Invites Accepted</h2>
+            <h2 class="has-text-white">Game Invites Incoming</h2>
             <div class="panel-block">
 
             </div>
