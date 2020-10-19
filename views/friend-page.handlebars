@@ -376,114 +376,66 @@
   </section>
   <script type="text/javascript">
 
+
     $(document).ready(function () {
-      $("#s1").click(function () {
-        $(".fa-star").css("color", "black")
-        $("#s1").css("color", "yellow");
-        $.post("/api/UpdateUserRating", {
-          raterID: req.user.id,
-          rating: 1
-        }).then(function (data) {
-          console.log("rated 1 star");
-        })
+      $("#ss1").click(function () {
+        $(".sstar").css("color", "black")
+        $("#ss1").css("color", "yellow");
       })
-      $("#s2").click(function () {
-        $(".fa-star").css("color", "black")
-        $("#s1, #s2").css("color", "yellow");
-        $.post("/api/UpdateUserRating", {
-          raterID: req.user.id,
-          rating: 2
-        }).then(function (data) {
-          console.log("rated 2 star");
-        })
+      $("#ss2").click(function () {
+        $(".sstar").css("color", "black")
+        $("#ss1, #ss2").css("color", "yellow");
       })
-      $("#s3").click(function () {
-        $(".fa-star").css("color", "black")
-        $("#s1, #s2, #s3").css("color", "yellow");
-        $.post("/api/UpdateUserRating", {
-          raterID: req.user.id,
-          rating: 3
-        }).then(function (data) {
-          console.log("rated 3 star");
-        })
+      $("#ss3").click(function () {
+        $(".sstar").css("color", "black")
+        $("#ss1, #ss2, #ss3").css("color", "yellow");
       })
-      $("#s4").click(function () {
-        $(".fa-star").css("color", "black")
-        $("#s1, #s2, #s3, #s4").css("color", "yellow");
-        $.post("/api/UpdateUserRating", {
-          raterID: req.user.id,
-          rating: 4
-        }).then(function (data) {
-          console.log("rated 4 star");
-        })
+      $("#ss4").click(function () {
+        $(".sstar").css("color", "black")
+        $("#ss1, #ss2, #ss3, #ss4").css("color", "yellow");
       })
-      $("#s5").click(function () {
-        $(".fa-star").css("color", "black")
-        $(".fa-star").css("color", "yellow");
-        $.post("/api/UpdateUserRating", {
-          raterID: req.user.id,
-          rating: 5
-        }).then(function (data) {
-          console.log("rated 5 star");
-        })
-        $("#ss1").click(function () {
-          $(".sstar").css("color", "black")
-          $("#ss1").css("color", "yellow");
-        })
-        $("#ss2").click(function () {
-          $(".sstar").css("color", "black")
-          $("#ss1, #ss2").css("color", "yellow");
-        })
-        $("#ss3").click(function () {
-          $(".sstar").css("color", "black")
-          $("#ss1, #ss2, #ss3").css("color", "yellow");
-        })
-        $("#ss4").click(function () {
-          $(".sstar").css("color", "black")
-          $("#ss1, #ss2, #ss3, #ss4").css("color", "yellow");
-        })
-        $("#ss5").click(function () {
-          $(".sstar").css("color", "black")
-          $(".sstar").css("color", "yellow");
-        })
-      });
-
-
-      function addone1() {
-        var foo = parseInt(document.getElementById('thisone1').innerHTML);
-        foo = foo + 1;
-        document.getElementById('thisone1').innerHTML = foo;
-      }
-
-      function addone2() {
-        var foo = parseInt(document.getElementById('thisone2').innerHTML);
-        foo = foo + 1;
-        document.getElementById('thisone2').innerHTML = foo;
-      }
-
-      function addone3() {
-        var foo = parseInt(document.getElementById('thisone3').innerHTML);
-        foo = foo + 1;
-        document.getElementById('thisone3').innerHTML = foo;
-      }
-
-      function addone4() {
-        var foo = parseInt(document.getElementById('thisone4').innerHTML);
-        foo = foo + 1;
-        document.getElementById('thisone4').innerHTML = foo;
-      }
-
-      function addone5() {
-        var foo = parseInt(document.getElementById('thisone5').innerHTML);
-        foo = foo + 1;
-        document.getElementById('thisone5').innerHTML = foo;
-      }
-
-      function addone6() {
-        var foo = parseInt(document.getElementById('thisone6').innerHTML);
-        foo = foo + 1;
-        document.getElementById('thisone6').innerHTML = foo;
-      }
+      $("#ss5").click(function () {
+        $(".sstar").css("color", "black")
+        $(".sstar").css("color", "yellow");
+      })
     });
+
+
+    function addone1() {
+      var foo = parseInt(document.getElementById('thisone1').innerHTML);
+      foo = foo + 1;
+      document.getElementById('thisone1').innerHTML = foo;
+    }
+
+    function addone2() {
+      var foo = parseInt(document.getElementById('thisone2').innerHTML);
+      foo = foo + 1;
+      document.getElementById('thisone2').innerHTML = foo;
+    }
+
+    function addone3() {
+      var foo = parseInt(document.getElementById('thisone3').innerHTML);
+      foo = foo + 1;
+      document.getElementById('thisone3').innerHTML = foo;
+    }
+
+    function addone4() {
+      var foo = parseInt(document.getElementById('thisone4').innerHTML);
+      foo = foo + 1;
+      document.getElementById('thisone4').innerHTML = foo;
+    }
+
+    function addone5() {
+      var foo = parseInt(document.getElementById('thisone5').innerHTML);
+      foo = foo + 1;
+      document.getElementById('thisone5').innerHTML = foo;
+    }
+
+    function addone6() {
+      var foo = parseInt(document.getElementById('thisone6').innerHTML);
+      foo = foo + 1;
+      document.getElementById('thisone6').innerHTML = foo;
+    }
+
   </script>
 </body>
