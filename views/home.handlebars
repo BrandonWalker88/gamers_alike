@@ -266,25 +266,27 @@
           </div>
           <div class="columns is-mobile">
             <div class="column is-one-third">
-              <div class="card opaque is-clickable" id="csgo">
-                <header class="card-header">
-                  <p class="card-header-title has-text-white">
+              <a>
+                <div class="card opaque is-clickable" id="csgo">
+                  <header class="card-header">
+                    <p class="card-header-title has-text-white">
 
-                  </p>
-                  <a href="#" class="card-header-icon" aria-label="more options">
-                    <span class="icon">
+                    </p>
+                    <a href="./game-page" class="card-header-icon" aria-label="more options">
+                      <span class="icon">
 
-                    </span>
-                  </a>
-                </header>
-                <div class="card-content">
-                  <div class="content">
+                      </span>
+                    </a>
+                  </header>
+                  <div class="card-content">
+                    <div class="content">
 
 
+                    </div>
                   </div>
-                </div>
 
-              </div>
+                </div>
+              </a>
             </div>
             <div class="column is-one-third">
               <div class="card opaque is-clickable" id="brawlhalla">
@@ -418,10 +420,10 @@
         $(".fa-star").css("color", "yellow");
       })
       $("#csgo").on("click" function () {
+        console.log("you clicked")
         res.render("game-page");
       });
-
-      Message #general
+    });
 
 
   </script>
