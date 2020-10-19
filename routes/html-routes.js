@@ -12,7 +12,6 @@ module.exports = function (app) {
   // });
 
   app.get("/friend-page", function (req, res) {
-    
     res.render("friend-page");
   });
 
@@ -23,17 +22,16 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     // If the user already has an account send them to the home page
     if (req.user) {
-      res.redirect("/allUsers");
+      res.redirect("/home");
     } else {
       res.render("signup");
     }
-    
   });
 
   app.get("/login", function (req, res) {
     // If the user already has an account send them to the home page
     if (req.user) {
-      res.redirect("/allUsers");
+      res.redirect("/home");
     } else {
       res.render("login");
     }
@@ -41,7 +39,7 @@ module.exports = function (app) {
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  // app.get("/home", isAuthenticated, function (req, res) {
-  //   res.render("signup");
-  // });
+//   app.get("/home", isAuthenticated, function (req, res) {
+//     res.render("signin");
+//   });
 };

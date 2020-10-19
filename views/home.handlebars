@@ -6,11 +6,8 @@
           <i class="fa fa-user" id="user-icon"></i>
         </div>
         <div>
-          <p> {{#each user}}
-            {{#dataValues}}
-            {{{user_name}}}
-            {{/dataValues}}
-            {{/each}}
+          <p> 
+            {{user.dataValues.user_name}}
             Your user name should be here</p>
         </div>
         <div class="column is-6">
@@ -34,7 +31,7 @@
           <div class="card has-text-centered" id="user-card">
             <div class="user-rep">
               <i class="fas fa-smile emoji" id="smile-icon"></i>
-              <span><strong>User Rep Score</strong></span>
+              <span><strong>{{user.dataValues.user_name}} Rep Score</strong></span>
             </div>
             <i class="fas fa-star is-clickable is-focused" id="s1"></i>
             <i class="fas fa-star is-clickable is-focused" id="s2"></i>
@@ -77,12 +74,15 @@
                 </span>
               </p>
             </div>
+
+            {{#each friends}}
+                {{#dataValues}}
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="panel-block has-text-danger">
                 <span class="panel-icon">
                   <i class="fas" aria-hidden="true"></i>
                 </span>
-                <strong>Tommy864</strong>
+                <strong>{{{user_name}}}</strong>
               </a>
 
               <div class="navbar-dropdown">
@@ -98,6 +98,10 @@
                 <hr class="navbar-divider">
               </div>
             </div>
+            {{/dataValues}}
+                {{/each}}
+
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="panel-block has-text-danger">
                 <span class="panel-icon">
@@ -238,7 +242,7 @@
             <p class="panel-heading">
               Current Game
             </p>
-            <h2 class="has-text-white">Invites Accepted</h2>
+            <h2 class="has-text-white">Game Invites Incoming</h2>
             <div class="panel-block">
 
             </div>
