@@ -304,3 +304,11 @@ html {
 #s1, #s2, #s3, #s4 {
   color: yellow;
 }
+
+#period {
+  color: rgb(29, 28, 28);
+}
+
+.signup {
+  color: #49f308;
+}
